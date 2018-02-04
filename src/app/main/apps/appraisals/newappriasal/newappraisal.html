@@ -1,0 +1,646 @@
+
+
+
+<md-progress-linear class="overlay" ng-show="processingRequest" md-mode="indeterminate" ng-value="please"></md-progress-linear>
+
+<div ng-show="processingRequest"  id="progress-image-loading ">
+    <div class="center">
+
+        <center>
+        <img src="./assets/images/logos/logo-white.png"/>
+          <!-- <img src="processing.gif" width="50px"/> -->
+        </center>
+
+        <!-- Material Design Spinner -->
+        <div class="spinner-wrapper">
+            <div class="spinner">
+                <div class="inner">
+                    <div class="gap"></div>
+                    <div class="left">
+                        <div class="half-circle"></div>
+                    </div>
+                    <div class="right">
+                        <div class="half-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Material Design Spinner -->
+    </div>
+</div>
+        <div layout="row">
+
+            <!-- FORM WIZARD -->
+            <ms-form-wizard flex>
+                <md-tabs md-dynamic-height md-selected="msWizard.selectedIndex" md-center-tabs="true">
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep1.$invalid">1</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep1.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 1</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body id="supplier-register" class="page">
+                            <form name="wizardStep1" class="md-inline-form" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Profile</h3>
+                                </md-card>
+                                <fieldset>
+
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel"><span class="">*</span> Full Name:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.FullName"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel"><span class="">*</span> Line of Business:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="25">
+                                            <label></label>
+                                            <md-select md-no-asterisk name="lob" ng-model="vm.profiledata.lob">
+                                                <md-option ng-repeat="lob in vm.lobs" value="{{lob}}">
+                                                    {{lob}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                        <div flex="20">
+                                            <label class="tiredlabel">Location/based at:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="25">
+                                            <label></label>
+                                            <md-select md-no-asterisk name="location" ng-model="vm.profiledata.location">
+                                                <md-option ng-repeat="location in vm.locations" value="{{location.country + ','+ location.state}}">
+                                                    {{location.country + ','+ location.state}}
+                                                </md-option>
+                                            </md-select>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel"><span class="">*</span> Year/period covered</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="25">
+                                            <label></label>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.periodCovered" >
+                                        </md-input-container>
+                                        <div flex="20">
+                                            <label class="tiredlabel">Time in present position:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="25">
+                                            <label></label>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.timeInPresentPosition">
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Recruitment Date:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.profiledata.recruitmentDate">
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Length of service:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.lengthOfService"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                    <!-- <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Appraisal date & time:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.profiledata.appraisalDate">
+                                        </md-input-container>
+                                    </div> -->
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Appraisal venue:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.appraisalVenue"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Appraiser:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.appraiser"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep2.$invalid">2</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep2.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 2</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep2" class="md-inline-form" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Goals & Objectives</h3>
+                                </md-card>
+                                <div class="about-section-text">
+                                    <p> Briefly describe your personal understanding and contributions to the overall objective of the organisation in 2017</p>
+                                </div>
+
+                                <div layout="row" layout-gt-xs="row" flex>
+                                    <md-input-container flex="100">
+                                      <textarea ng-model="vm.objective.objectives" md-select-on-focus></textarea>
+
+                                    </md-input-container>
+                                </div>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep3.$invalid">3</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep3.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 3</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body>
+                            <form name="wizardStep3" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Self Assessment</h3>
+                                </md-card>
+                                <ol>
+                                    <li>
+                                        <div class="about-section-text">
+                                            <p>Your Job Summary:  Provide a summary of your responsibilities during this period, including significant projects.  </p>
+                                        </div>
+
+                                        <ol>
+                                            <li ng-repeat="jobsummary in vm.jobsummaries track by $index">
+                                                <div layout="row">
+                                                    <md-input-container flex="70">
+                                                        <input md-no-asterisk type="text" ng-model="jobsummary.summary">
+                                                    </md-input-container>
+                                                    <div flex="20">
+                                                        <md-button class="md-raised md-accent" aria-label="remove selected jobsummary" ng-click="vm.removeSelectedObject(jobsummary,'jobsummary')">
+                                                            <ng-md-icon icon="delete" md-menu-align-target></ng-md-icon>
+                                                        </md-button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                        <div class="about-section-text">
+                                            <md-input-container flex="25">
+                                                <md-icon ng-click="vm.addNewObject('jobsummary')" md-svg-src="./assets/icons/svg/round-add-button.svg"
+                                                    class="button"></md-icon>
+                                            </md-input-container>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="about-section-text">
+                                            <p>Adjusted Responsibilities/Additional Comments: Note any job changes, responsibilities, or projects added since the last update of your job description, plan of work or performance goals/objectives, as well as any special circumstances that provide a context for this performance review.  </p>
+                                          </div>
+
+                                          <ol>
+                                              <li ng-repeat="objective in vm.responsibilities track by $index">
+                                                  <div layout="row">
+                                                      <md-input-container flex="70">
+                                                          <input md-no-asterisk type="text" ng-model="objective.comment">
+                                                      </md-input-container>
+                                                      <div flex="20">
+                                                          <md-button class="md-raised md-accent" aria-label="remove selected objective" ng-click="vm.removeSelectedObject(objective,'responsibility')">
+                                                              <ng-md-icon icon="delete" md-menu-align-target></ng-md-icon>
+                                                          </md-button>
+                                                      </div>
+                                                  </div>
+                                              </li>
+                                          </ol>
+                                          <div class="about-section-text">
+                                              <md-input-container flex="25">
+                                                  <md-icon ng-click="vm.addNewObject('responsibility')" md-svg-src="./assets/icons/svg/round-add-button.svg"
+                                                      class="button"></md-icon>
+                                              </md-input-container>
+                                          </div>
+                                    </li>
+                                    <li>
+                                        <div class="about-section-text">
+                                            <p>Performance Appraisal: Discuss and evaluate your performance against the firm’s objectives.  Base your appraisal upon the job summary, adjusted responsibilities/additional comments and your performance goals for the performance cycle.</p>
+                                          </div>
+
+                                          <div layout="row" layout-gt-xs="row" flex>
+                                              <ol>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>Accomplishment of key responsibilities/deliverables:</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.accomplishment"  md-select-on-focus></textarea>
+
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>Achievement of the goals established during the past year: </p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.achievement"  md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>Identify areas of exceptional performance on your part that should be particularly noted.  Provide specific examples.</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.exceptionalPerformance"  md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>In your current position, can you share an example where you have demonstrated your leadership? Provide specific examples.</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.leadership"  md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+
+
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>In your current position, can you share an example where you have taken ownership? Provide specific examples.</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.ownership"  md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>Identify areas of your performance needing more attention or improvement.  Provide specific examples.</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.improvement"  md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                                <li>
+                                                  <div class="p-appraisal-li">
+                                                    <p>Apart from your current role, is there any other role in the organization you will like to function in? Please specify the role, state the reasons for your choice and articulate how you intend to contribute to the goal of the organization by functioning in this role.</p>
+                                                  </div>
+
+                                                  <div layout="row" layout-gt-xs="row" flex>
+                                                      <md-input-container flex="100">
+                                                        <textarea ng-model="vm.performanceAppraisal.anyOtherRole" md-select-on-focus></textarea>
+                                                          <div ng-messages="wizardStep1.firstname.$error"
+                                                                role="alert">
+                                                              <div ng-message="">
+                                                                  <span>Firstname field is .</span>
+                                                              </div>
+                                                          </div>
+                                                      </md-input-container>
+                                                  </div>
+                                                </li>
+                                              </ol>
+                                          </div>
+                                    </li>
+                                </ol>
+
+                          </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep4.$invalid">4</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep4.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 4</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep4" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Founding Philosophy</h3>
+                                </md-card>
+                              <ol>
+                                <li>
+                                <div class="about-section-text">
+                                    <p>Please rate your level of understanding of and/or performance against the firm’s founding philosophy using the following metrics:</p>
+                                    <span class="about-section-text">(4 = Exceptional         3 = Good         2 = Below Average      1 = Poor)</span>
+                                </div>
+
+                                <md-table-container>
+                                    <table md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
+                                      <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                                        <tr md-row>
+                                          <th md-column md-order-by="name"><span>Creed </span></th>
+                                          <th md-column md-order-by="type"><span>Definitions</span></th>
+                                          <th md-column md-order-by="type"><span>Ratings</span></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody md-body>
+                                        <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="philosophy in vm.foundingPhilosophy">
+
+                                          <td md-cell>{{philosophy.name}}</td>
+                                          <td md-cell>{{philosophy.definition}}</td>
+                                          <td md-cell>
+                                              <md-radio-group layout="row" layout-align="start center" ng-checked="vm.collectionTypeChanged()" ng-model="philosophy.rating">
+                                                  <md-radio-button value="4">4</md-radio-button>
+                                                  <md-radio-button value="3">3</md-radio-button>
+                                                  <md-radio-button value="2">2</md-radio-button>
+                                                  <md-radio-button value="1">1</md-radio-button>
+                                              </md-radio-group>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </md-table-container>
+                                </li>
+                                  <li>
+                                    <div class="about-section-text">
+                                        <p> List below key achievement / client feedback on your performance in relation to the founding philosophy
+                                          (List the projects, Name of feedback provider (Client),
+                                          brief description of your contribution)
+                                        </p>
+                                    </div>
+
+                                    <div layout="row" layout-gt-xs="row" flex>
+                                        <md-input-container flex="100">
+                                          <textarea ng-model="vm.feedBack" md-select-on-focus></textarea>
+
+                                        </md-input-container>
+                                    </div>
+                                </li>
+                              </ol>
+                            </form>
+
+                        </md-tab-body>
+
+                    </md-tab>
+
+
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep5.$invalid">5</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep5.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 5</span>
+                            </span>
+                        </md-tab-label>
+                        <md-tab-body>
+                            <form name="wizardStep5" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Overall Assessment</h3>
+                                </md-card>
+                                <div class="about-section-text">
+                                  <p>Overall Performance Rating definition (Tick where appropriate)</p>
+                                </div>
+                                <div class="overall">
+                                    <span>5 = Exceeds Expectations:  Demonstrates this Performance Factor consistently above and beyond expectations</span><br>
+                                    <span>4 = Meets Expectations:  Effectively demonstrates the Performance Factor, all of the time, in all situations, consistently in line with expectations.</span><br>
+                                    <span>3 = Partially Meets Expectations:  Effectively demonstrates the Performance Factor in many, but not all situations, and/or some improvement is .</span><br>
+                                    <span>2 = Does Not Meet Expectations:  Has difficulty demonstrating this Performance Factor; significant improvement is . </span><br>
+                                    <span>1 = No Basis: had little opportunity to demonstrate this Performance Factor during the assessment period.  </span><br>
+                                    <span>N/A = Individual has not been in position long enough (at least three (3) months) to fully demonstrate the competencies  for the position. This appraisal is provided for feedback purposes.</span><br>
+                                </div>
+
+                                <div layout="row" layout-gt-xs="row" class="page" flex layout-align="space-around center">
+                                    <md-card class="default header" layout="column" flex layout-align="center">
+
+                                      <md-radio-group  layout="row" ng-checked="vm.collectionTypeChanged()" ng-model="vm.assessment.overall">
+                                          <div flex="20">
+                                            <label> 5 </label>
+                                            <md-radio-button value="5"></md-radio-button>
+                                          </div>
+
+                                          <div flex="20">
+                                            <label> 4 </label>
+                                            <md-radio-button value="4"></md-radio-button>
+                                          </div>
+                                          <div flex="20">
+                                            <label> 3 </label>
+                                            <md-radio-button value="3"></md-radio-button>
+                                          </div>
+                                          <div flex="20">
+                                            <label> 2 </label>
+                                              <md-radio-button value="2"></md-radio-button>
+                                          </div>
+                                          <div flex="20">
+                                            <label> 1 </label>
+                                            <md-radio-button value="1"></md-radio-button>
+                                          </div>
+                                          <div flex="20">
+                                            <label> N/A </label>
+                                            <md-radio-button value="0"></md-radio-button>
+                                          </div>
+                                        </md-radio-group>
+
+                                  </md-card>
+                                </div>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                    <md-tab>
+                        <md-tab-label>
+                            <span class="ms-form-wizard-step-label">
+                                <span class="ms-form-wizard-step-number md-accent-bg"
+                                      ng-if="wizardStep6.$invalid">6</span>
+                                <span class="ms-form-wizard-step-number md-accent-bg" ng-if="wizardStep6.$valid">
+                                    <i class="icon-check s16"></i>
+                                </span>
+                                <span class="ms-form-wizard-step-text">Step 6</span>
+                            </span>
+                        </md-tab-label>
+
+                        <md-tab-body id="supplier-register" class="page">
+                            <form name="wizardStep6" class="md-inline-form" ms-form-wizard-form novalidate>
+                                <md-card id="defaultcard" layout="column" layout-align="center">
+                                    <h3>
+                                        <md-icon md-font-icon="icon-content-paste"></md-icon>Development Plan</h3>
+                                </md-card>
+                                <div class="about-section-text">
+                                    <p> Directions:  Identify the areas where you would like to develop (either in terms of your knowledge, skills or performance) – this may relate to either your current position, or a future position (or both).  Then describe what specific actions you will take to develop in that area.  Finally indicate when you plan to complete this activity.</p>
+                                </div>
+                                <fieldset>
+                                    <legend>Performance Enhancement (Current Position)</legend>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel"><span class="">*</span> Competences:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.currentPosition.competences"></textarea>
+                                        </md-input-container>
+                                    </div>
+
+
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Actions:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.currentPosition.actions"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Due Date:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.currentPosition.dueDate">
+                                        </md-input-container>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <legend>Career Development (Future Positions)</legend>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel"><span class="">*</span> Competences:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.futurePosition.competences"></textarea>
+                                        </md-input-container>
+                                    </div>
+
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Actions:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <textarea md-no-asterisk type="text" ng-model="vm.futurePosition.actions"></textarea>
+                                        </md-input-container>
+                                    </div>
+                                    <div layout="row">
+                                        <div flex="20">
+                                            <label class="tiredlabel">Due Date:</label>
+                                        </div>
+                                        <md-input-container class="tiredinput" flex="70">
+                                            <label></label>
+                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.futurePosition.dueDate">
+                                        </md-input-container>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </md-tab-body>
+                    </md-tab>
+
+                </md-tabs>
+
+                <div class="navigation" flex layout="row" layout-align="center center">
+                    <md-button class="md-raised md-accent" ng-click="msWizard.previousStep()"
+                               ng-disabled="msWizard.isFirstStep()">
+                        Previous
+                    </md-button>
+                    <div class="steps">
+                        <span ng-repeat="form in msWizard.forms"
+                              ng-class="{'selected md-accent-bg':msWizard.selectedIndex === $index}"></span>
+                    </div>
+                    <md-button class="md-raised md-accent" ng-click="msWizard.nextStep()"
+                               ng-hide="msWizard.isLastStep()"
+                               ng-disabled="msWizard.currentStepInvalid()">
+                        Next
+                    </md-button>
+                    <md-button class="md-raised md-warn" ng-click="vm.sendForm(); msWizard.resetForm();"
+                               ng-show="msWizard.isLastStep()"
+                               ng-disabled="msWizard.formsIncomplete()">
+                        Send
+                    </md-button>
+                </div>
+
+            </ms-form-wizard>
+            <!-- / FORM WIZARD -->
+
+        </div>

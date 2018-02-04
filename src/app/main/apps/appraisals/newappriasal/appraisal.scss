@@ -1,0 +1,425 @@
+.about-section {
+  //background-image: url(../images/Health-Patterns.png);
+  background-repeat: repeat-x;
+  background-position: top;
+  padding-top: 104px;
+  margin-bottom: 55px;
+}
+
+.about-section-text {
+  text-align: center;
+  font-weight: bold;
+}
+
+.tiredinput{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  min-height: 58px;
+}
+
+.tiredlabel{
+  display: block;
+  margin-top: 6px;
+  margin-right: 10px;
+  text-align: right;
+  font-size: 16px;
+}
+
+
+.button {
+  cursor: pointer;
+  color: #7d7d7d;
+}
+
+.button:hover {
+  color: rgb(0,145,234);
+}
+.about-section-text h3 {
+  font-size: 53px;
+  font-weight: 600;
+  line-height: 60px;
+  margin-bottom: 23px;
+}
+.page {
+  md-card {
+    margin: 0px;
+    min-height: 48px;
+    h3,
+    md-radio-group {
+        padding-left: 20px;
+        margin: 12px 0px;
+    }
+  }
+}
+
+#defaultcard{
+  margin: -20px -015px 5px -15px;
+  min-height: 48px;
+}
+
+#supplier-register {
+  .page {
+
+      .table{
+          margin: 0px;
+          padding-top: 0px;
+      }
+
+      md-table-container {
+          border: 1px solid #ccc;
+          border-radius: 7px;
+          overflow : auto;
+
+          .table-footer {
+              td {
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-weight: 900;
+                  color: rgba(0, 0, 0, 0.70);
+              }
+
+          }
+
+          button.export {
+              text-transform: none;
+              color: #21a5e5;
+              font-size: 11px;
+          }
+
+          th {
+              font-family: Arial, Helvetica, sans-serif;
+              font-weight: 900;
+          }
+      }
+
+      md-card {
+          margin: 0px;
+          min-height: 48px;
+
+          h3, md-radio-group {
+              padding-left: 20px;
+              margin: 12px 0px;
+          }
+      }
+
+      .search-by {
+          text-align: right;
+
+          select {
+          height: 40px;
+          border: none;
+          padding: 0 10px 0 15px;
+          cursor: pointer;
+          border-right: 1px solid #ddd;
+          }
+      }
+
+      md-card.search {
+              padding: 10px;
+              margin-bottom: 10px;
+              min-height: 60px;
+
+              .label {
+              display: block;
+              margin-top: 6px;
+              margin-right: 10px;
+              text-align: right;
+              font-size: 16px;
+          }
+
+          .label.search-label {
+              margin-top: 9px;
+          }
+      }
+
+      form {
+          padding: 0px;
+          margin-top: 0px;
+
+          md-card {
+              padding: 10px;
+              margin-top: 5px;
+              margin-bottom: 5px;
+          }
+
+          fieldset {
+              // margin-top: 20px;
+              color: #000000;
+
+              .socio-economic-questions{
+                  margin-top: 20px;
+              }
+          }
+
+          .label {
+              display: block;
+              margin-top: 6px;
+              margin-right: 10px;
+              text-align: right;
+              font-size: 16px;
+          }
+
+          .label.search-label {
+              margin-top: 9px;
+          }
+
+          .label.radio-label {
+              margin-top: 3px;
+          }
+
+          .label.button-label {
+              margin-top: 9px;
+              margin-right: 0px;
+              font-weight: bold;
+          }
+
+          .deposit{
+              display: inline-block;
+          }
+
+          md-input-container {
+              margin-top: 0px;
+              margin-bottom: 0px;
+              min-height: 58px;
+
+              input:focus {
+                  border-color: rgb(0,145,234);
+              }
+
+              textarea:focus {
+                  border-color: rgb(0,145,234);
+              }
+
+              .button {
+                  cursor: pointer;
+                  color: #7d7d7d;
+              }
+
+              .button:hover {
+                  color: rgb(0,145,234);
+              }
+
+              md-icon {
+                  color: #7d7d7d;
+              }
+          }
+
+      }
+  }
+}
+
+
+.p-appraisal-li {
+  font-style: italic;
+}
+.about-section-text p {
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+.about-section-text span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.overall span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.content h2 {
+  text-align: center;
+  padding: 40px 0 40px 0;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.list li p {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.content h3 {
+  font-weight: bold;
+  font-size: 15px;
+  padding-top: 16px;
+}
+
+.content p {
+  font-size: 14px;
+  text-align: left;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+.get-started {
+  text-align: center;
+  height: 310px;
+ // background-image: url(../images/cityscape_Vector.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.defaultheader{
+  margin: 0px;
+  min-height: 48px;
+}
+.basis {
+  padding-left: 25px;
+  font-size: 14px;
+  margin-top: -15px;
+
+}
+
+ol.overall {
+  display: flex;
+  flex-direction: column;
+}
+ol.overall li:first-child {
+  order: 5;
+}
+ol.overall li:nth-child(1) {
+  order: 4;
+}
+ol.overall li:nth-child(2) {
+  order: 3;
+}
+ol.overall li:nth-child(3) {
+  order: 2;
+}
+ol.overall li:nth-child(4) {
+  order: 1;
+}
+ol.overall li:nth-last-child {
+  order: unset;
+}
+
+
+
+
+.overlay {
+  display:block;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:5000;
+}
+
+
+#progress-image-loading {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:rgba(0,0,0,0.7);
+  z-index: 99999;
+
+  &.ng-leave {
+      opacity: 1;
+      transition: all linear 200ms;
+  }
+
+  &.ng-leave-active {
+      opacity: 0;
+  }
+
+  .center {
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  .logo {
+      width: 96px;
+      height: 96px;
+      line-height: 96px;
+      margin: 0 auto;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 56px;
+      text-align: center;
+      border-radius: 2px;
+      background-color: #039BE5;
+      color: #FFFFFF;
+      box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.22);
+  }
+
+  .spinner-wrapper {
+      display: block;
+      position: relative;
+      width: 100%;
+      min-height: 100px;
+      height: 100px;
+
+      .spinner {
+          position: absolute;
+          overflow: hidden;
+          left: 50%;
+          margin-left: -50px;
+          animation: outer-rotate 2.91667s linear infinite;
+
+          .inner {
+              width: 100px;
+              height: 100px;
+              position: relative;
+              animation: sporadic-rotate 5.25s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+
+              .gap {
+                  position: absolute;
+                  left: 49px;
+                  right: 49px;
+                  top: 0;
+                  bottom: 0;
+                  border-top: 10px solid;
+                  box-sizing: border-box;
+              }
+
+              .left,
+              .right {
+                  position: absolute;
+                  top: 0;
+                  height: 100px;
+                  width: 50px;
+                  overflow: hidden;
+
+                  .half-circle {
+                      position: absolute;
+                      top: 0;
+                      width: 100px;
+                      height: 100px;
+                      box-sizing: border-box;
+                      border: 10px solid #4285F4;
+                      border-bottom-color: transparent;
+                      border-radius: 50%;
+                  }
+              }
+
+              .left {
+                  left: 0;
+
+                  .half-circle {
+                      left: 0;
+                      border-right-color: transparent;
+                      animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                      -webkit-animation: left-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                  }
+              }
+
+              .right {
+                  right: 0;
+
+                  .half-circle {
+                      right: 0;
+                      border-left-color: transparent;
+                      animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                      -webkit-animation: right-wobble 1.3125s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+                  }
+              }
+          }
+      }
+
+  }
+}

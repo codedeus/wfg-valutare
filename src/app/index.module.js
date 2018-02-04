@@ -1,0 +1,44 @@
+(function() {
+    'use strict';
+
+    /**
+     * Main module of the Fuse
+     */
+    angular
+        .module('fuse', [
+            // Core
+            'app.core',
+            // Navigation
+            'app.navigation',
+            // Toolbar
+            'app.toolbar',
+            // Quick panel
+            //'app.quick-panel',
+            // Apps
+
+            'app.dashboard',
+            'app.appraisals',
+
+            'app.settings',
+            'md.data.table'
+           //added for components
+            // 'ngWebworker',
+
+            //   'worker-app',
+            //   'app.paymentmanager',
+            //  'app.serviceRegistration',
+            //'app.calendar',
+            //'app.mail',
+            //'app.file-manager',
+            //'app.scrumboard',
+            //'app.gantt-chart',
+            //'app.todo',
+            // Pages
+            //'app.pages',
+            // User Interface
+            //'app.ui',
+            // Components
+            //'app.components'
+            //Third-party libraries
+        ]);
+})();

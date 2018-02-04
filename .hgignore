@@ -1,0 +1,6 @@
+syntax: glob
+bower_components
+node_modules
+dist
+.vs
+.temp

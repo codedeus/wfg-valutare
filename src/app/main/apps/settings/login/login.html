@@ -1,0 +1,72 @@
+<md-progress-linear class="overlay" ng-show="processingRequest" md-mode="indeterminate" ng-value="please"></md-progress-linear>
+<div id="login-v2" layout="row" layout-align="start">
+
+    <div id="login-v2-intro" flex hide show-gt-sm>
+
+        <div class="title">
+            <img src="./assets/images/logos/logo-white.png" />
+        </div>
+        <!-- <div class="title" translate="LOGIN_V2.INTRO_TITLE">
+
+        </div>
+        <div class="title" translate="LOGIN_V2.INTRO_DESCRIPTION">
+
+        </div> -->
+      </div>
+
+    <div ng-show="processingRequest" id="image-loading">
+        <div class="center">
+
+            <center>
+            <img src="./assets/images/logos/logo-white.png"/>
+              <!-- <img src="processing.gif" width="50px"/> -->
+            </center>
+
+            <!-- Material Design Spinner -->
+            <div class="spinner-wrapper">
+                <div class="spinner">
+                    <div class="inner">
+                        <div class="gap"></div>
+                        <div class="left">
+                            <div class="half-circle"></div>
+                        </div>
+                        <div class="right">
+                            <div class="half-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- / Material Design Spinner -->
+        </div>
+    </div>
+
+    <div id="login-v2-form-wrapper" class="flex-scrollable md-whiteframe-8dp" ms-scroll>
+        <div id="login-v2-form">
+            <div class="logo md-accent-bg" hide-gt-sm>
+                <span><img src="./assets/images/logos/logo-white.png"/></span>
+            </div>
+
+            <div class="title" translate="LOGIN_V2.TITLE"></div>
+
+            <form name="loginForm" novalidate>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="text" ng-model="vm.username" translate translate-attr-placeholder="LOGIN_V2.USERNAME" autocomplete="off" required>
+                </md-input-container>
+
+                <md-input-container class="md-block" md-no-float>
+                    <input type="password" ng-model="vm.password" translate translate-attr-placeholder="LOGIN_V2.PASSWORD" required >
+                </md-input-container>
+
+                <md-button class="md-raised md-accent submit-button" type="submit" aria-label="LOG IN"
+                      ng-readonly="processingRequest" ng-disabled="processingRequest|| loginForm.$invalid || loginForm.$pristine"
+                      ng-click="vm.login()" translate="LOGIN_V2.LOG_IN" translate-attr-aria-label="LOGIN_V2.LOG_IN">
+
+                </md-button>
+                <md-button ng-show="false" translate="LOGIN_V2.CLEAR_STORAGE" class="md-raised md-accent submit-button" aria-label="LOG IN" ng-click="vm.clear()">
+                </md-button>
+
+            </form>
+        </div>
+    </div>
+</div>

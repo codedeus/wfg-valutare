@@ -1,0 +1,58 @@
+bio-card{
+  border: 1px solid #ccc;
+  border-radius: 7px;
+
+  .personal-profile {
+
+          .profile-avatar {
+              margin: 5px;
+              max-width: 130px;
+              width: 100%;
+
+              img {
+                  width: 100%;
+                  border-radius: 50%;
+              }
+          }
+
+          .profile-details {
+              margin: 5px 5px 5px 8px;
+
+              .header h1 {
+                  margin: 0px;
+                  position: relative;
+                  font-size: 24px;
+                  line-height: 24px;
+                  text-transform: capitalize;
+
+                  .md-button {
+                      position: absolute;
+                      right: 0px;
+                      margin: 0px;
+                      padding: 0px;
+                  }
+              }
+
+              .details {
+                  p {
+                      margin-bottom: 5px;
+                      margin-top: 15px;
+                      color: #757575;
+                      font-size: 14px;
+                      line-height: 14px;
+                  }
+
+                  span {
+                      color: #424242;	font-size: 16px; line-height: 16px;
+                  }
+              }
+          }
+  }
+}
+
+
+#viewfieldset {
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  margin: 25px;
+}
