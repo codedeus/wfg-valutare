@@ -8,7 +8,8 @@
       $mdDialog,
       $document,
       $http,
-      AppConstants
+      AppConstants,
+      UtilityService
     ) {
       var vm = this;
 
@@ -34,7 +35,7 @@
           controller: "AcceptAppraisalController",
           controllerAs: "vm",
           locals: {
-            selectedMail: undefined;
+            selectedMail: undefined
           },
           templateUrl:
             "app/main/apps/appraisals/manageappraisal/dialogs/acceptappraisal/acceptappraisal.html",
@@ -43,6 +44,12 @@
           clickOutsideToClose: true
         })
       }
+
+      vm.showDialog = function (ev, templateFile, dialogData) {
+        //var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+        var data = {};
+        UtilityService.showDialog(ev, templateFile, data,'DialogController');
+      };
 
       function declineDialog(ev) {
         $mdDialog.show({

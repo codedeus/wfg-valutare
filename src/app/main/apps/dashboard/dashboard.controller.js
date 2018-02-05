@@ -9,11 +9,7 @@
     function DashboardController(UtilityService){
       var vm = this;
 
-      vm.showDialog = function (ev, templateFile, dialogData) {
-        //var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-        var data = {};
-        UtilityService.showDialog(ev, templateFile, data,'DialogController');
-      };
+
     }
 
 
