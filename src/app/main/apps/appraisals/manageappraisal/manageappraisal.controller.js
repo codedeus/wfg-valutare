@@ -10,19 +10,19 @@
       $http,
       AppConstants
     ) {
-      var vm = this
+      var vm = this;
 
-      vm.acceptDialog = acceptDialog
-      vm.declineDialog = declineDialog
+      vm.acceptDialog = acceptDialog;
+      vm.declineDialog = declineDialog;
 
-      $scope.selected = []
-      $scope.users = []
+      $scope.selected = [];
+      $scope.users = [];
 
       $http
         .get(AppConstants.baseApiUrl + "appraisal/sub")
         .then(function(response) {
-          $scope.users = response.data
-        })
+          $scope.users = response.data;
+        });
 
       /**
        * Open compose dialog
@@ -34,7 +34,7 @@
           controller: "AcceptAppraisalController",
           controllerAs: "vm",
           locals: {
-            selectedMail: undefined
+            selectedMail: undefined;
           },
           templateUrl:
             "app/main/apps/appraisals/manageappraisal/dialogs/acceptappraisal/acceptappraisal.html",
@@ -56,7 +56,7 @@
           parent: angular.element($document.body),
           targetEvent: ev,
           clickOutsideToClose: true
-        })
+        });
       }
-    })
-})()
+    });
+})();

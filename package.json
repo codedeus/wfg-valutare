@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "gulp test",
-	"start":"main.js"
+	"start":"main.js",
+	"postinstall": "bower install"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
