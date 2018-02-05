@@ -6,7 +6,7 @@
   "license": "MIT",
   "description": "Health Information Management System",
   "dependencies": {
-	"bower":"1.8.2",
+	  "bower":"1.8.2",
     "bunyan": "^1.8.12",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^2.1.0",
@@ -14,9 +14,10 @@
     "q": "^1.5.0"
   },
   "scripts": {
+    "build":"gulp",
     "test": "gulp test",
-	"start":"main.js",
-	"postinstall": "bower install"
+	  "start":"node main.js",
+	  "postinstall": "bower install"
   },
   "devDependencies": {
     "browser-sync": "~2.9.11",
