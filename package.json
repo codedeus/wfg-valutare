@@ -6,6 +6,7 @@
   "license": "MIT",
   "description": "Health Information Management System",
   "dependencies": {
+	"bower":"1.8.2",
     "bunyan": "^1.8.12",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^2.1.0",
