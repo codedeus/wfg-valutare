@@ -3,20 +3,15 @@
 
   angular
       .module('app.dashboard')
-      .controller('DashboardController', DashboardController)
-      .controller('DialogController',DialogController);
+      .controller('DashboardController', DashboardController);
 
-    function DashboardController(UtilityService){
+    function DashboardController($http,AppConstants,$rootScope){
       var vm = this;
-
-
-    }
-
-
-    function DialogController($scope, $rootScope, $mdDialog, $mdMedia, $mdEditDialog, $q, dialogData) {
-      $scope.cancel = function(){
-        $mdDialog.cancel();
-      }
+      $rootScope.processingRequest = true;
+      $http.get(AppConstants.baseApiUrl + 'users/loggedInUser').then(function(response){
+        vm.user = response.data;
+        $rootScope.processingRequest = false;
+      });
     }
 
 })();

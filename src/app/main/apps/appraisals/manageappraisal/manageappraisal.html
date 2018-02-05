@@ -40,7 +40,7 @@
               <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="user in users | filter: filter.search | orderBy: query.order ">
                 <td md-cell>{{user.firstname}} {{user.lastname}}</td>
 
-                <td md-cell><md-icon ng-click="vm.showDialog($event, 'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
+                <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
                   class="button"></md-icon></td>
               </tr>
             </tbody>
@@ -50,7 +50,8 @@
         <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{users.count}}"
           md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="vm.getEmployeeList"></md-table-pagination>
 
-
+          <!-- <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
+            class="button"></md-icon></td> -->
   </div>
   <!-- / CONTENT -->
 

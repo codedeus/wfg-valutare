@@ -19,8 +19,6 @@
       }
     })
 
-    $translatePartialLoaderProvider.addPart(
-      "app/main/apps/appraisals/manageappraisal"
-    )
+    $translatePartialLoaderProvider.addPart("app/main/apps/appraisals/manageappraisal");
   }
-})()
+})();

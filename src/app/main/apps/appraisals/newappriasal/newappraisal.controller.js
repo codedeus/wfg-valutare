@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.appraisals.newappraisal').
-      controller('NewAppraisalController',function(AppConstants,$http,$scope,$rootScope){
+      controller('NewAppraisalController',function(AppConstants,$http,$scope,$rootScope,UtilityService){
           var vm = this;
           vm.responsibilities = [];
           vm.jobsummaries = [];
@@ -145,8 +145,7 @@
                           $http.put(AppConstants.baseApiUrl+"users/update-profile",vm.profiledata).then(function(profiledatares){
                             $http.post(AppConstants.baseApiUrl+'plans',vm.developmentPlan).then(function(success){
                               $rootScope.processingRequest = false;
-                              var message = "Yippie!!!, everthing submitted sussessfully";
-                              toastr.success( "<br/>"+ message, "Success");
+                              UtilityService.showAlert('success!','Appraisal submitted successfully','Alert Dialog');
 
                             },function(response){
                               console.log(response);

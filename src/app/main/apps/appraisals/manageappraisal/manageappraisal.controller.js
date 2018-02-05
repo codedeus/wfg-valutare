@@ -1,5 +1,5 @@
 (function() {
-  "use strict"
+  "use strict";
 
   angular
     .module("app.appraisals.manageappraisal")
@@ -9,12 +9,10 @@
       $document,
       $http,
       AppConstants,
-      UtilityService
+      UtilityService,
+      $rootScope
     ) {
       var vm = this;
-
-      vm.acceptDialog = acceptDialog;
-      vm.declineDialog = declineDialog;
 
       $scope.selected = [];
       $scope.users = [];
@@ -25,45 +23,47 @@
           $scope.users = response.data;
         });
 
-      /**
-       * Open compose dialog
-       *
-       * @param ev
-       */
-      function acceptDialog(ev) {
-        $mdDialog.show({
-          controller: "AcceptAppraisalController",
-          controllerAs: "vm",
-          locals: {
-            selectedMail: undefined
-          },
-          templateUrl:
-            "app/main/apps/appraisals/manageappraisal/dialogs/acceptappraisal/acceptappraisal.html",
-          parent: angular.element($document.body),
-          targetEvent: ev,
-          clickOutsideToClose: true
-        })
-      }
+      vm.getAppraisalDetails = function(employeeId,ev,templateFile){
+        $rootScope.processingRequest = true;
+        $http.get(AppConstants.baseApiUrl+'appraisal/'+employeeId.id).then(function(response){
 
-      vm.showDialog = function (ev, templateFile, dialogData) {
-        //var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-        var data = {};
-        UtilityService.showDialog(ev, templateFile, data,'DialogController');
+          console.log(response);
+         UtilityService.showDialog(ev, templateFile, {},'ViewAppraisalController');
+        });
       };
 
-      function declineDialog(ev) {
-        $mdDialog.show({
-          controller: "DeclineAppraisalController",
-          controllerAs: "vm",
-          locals: {
-            selectedMail: undefined
-          },
-          templateUrl:
-            "app/main/apps/appraisals/manageappraisal/dialogs/declineappraisal/declineappraisal.html",
-          parent: angular.element($document.body),
-          targetEvent: ev,
-          clickOutsideToClose: true
+    }).controller('ViewAppraisalController',function(dialogData,$scope,$mdDialog,$rootScope,AppConstants,UtilityService,$http){
+      var vm = this;
+      $scope.review = {};
+
+      $scope.user = dialogData.user;
+      $scope.objectives = dialogData.objectives;
+      $scope.jobSummary = dialogData.jobSummary;
+      $scope.additionalComments = dialogData.additionalComments;
+      $scope.performanceAppraisal = dialogData.performanceAppraisal;
+      $scope.foundingPhilosophy = dialogData.foundingPhilosophy.creeds;
+      $scope.overallAssessment = dialogData.overallAssessment;
+      $scope.developmentPlans = dialogData.developmentPlans;
+      $scope.clientFeedback = dialogData.clientFeedback;
+
+      $rootScope.processingRequest = false;
+
+      $scope.cancel = function(){
+        $mdDialog.cancel();
+      };
+
+      $scope.submitReveiw = function(status){
+        $scope.processingReveiw = true;
+        $scope.review.action = status;
+        $http.post(AppConstants.baseApiUrl+"appraisal/"+$scope.user.id+"/appraise",$scope.review).then(function(){
+          $$scope.processingReveiw = false;
+
+          UtilityService.showAlert('success!','Appraisal review submitted successfully','Alert Dialog');
+        },function(){
+          $$scope.processingReveiw = false;
+          UtilityService.showAlert('error occured!','error occured','Alert Dialog');
+
         });
-      }
+      };
     });
 })();

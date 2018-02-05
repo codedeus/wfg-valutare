@@ -10,36 +10,29 @@
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="header">
-                <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                    <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                        <md-icon md-font-icon="icon-pencil"></md-icon>
-                    </md-button>
+                <h1>{{vm.user.firstname+' '+vm.user.lastname}}
                 </h1>
+
+
+            </div>
+            <div class="details" layout="row" layout-wrap>
+                <div flex="25">
+                    <p style="font-weight: bold; font-size:18px;">Email</p>
+                    <span>{{vm.user.email}}</span>
+                </div>
             </div>
               <div class="details" layout="row" layout-wrap>
                   <div flex="25">
-                      <p>Line Of Business</p>
-                      <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+                      <p style="font-weight: bold; font-size:18px;">Line Of Business</p>
+                      <span>{{vm.user.personalInfo.lob}}</span>
                   </div>
                   <div flex="25">
-                      <p>Recruitment Date</p>
-                      <span>{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
+                      <p style="font-weight: bold; font-size:18px;">Recruitment Date</p>
+                      <span>{{vm.user.personalInfo.recruitmentDate|date}}</span>
                   </div>
                   <div flex="25">
-                      <p>Location/based at </p>
-                      <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
-                  </div>
-                  <div flex="25">
-                      <p>Phone Number</p>
-                      <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
-                  </div>
-                  <div flex="25">
-                      <p>Email</p>
-                      <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
-                  </div>
-                  <div flex="25">
-                      <p>Department/Unit</p>
-                      <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
+                      <p style="font-weight: bold; font-size:18px;">Location/based at </p>
+                      <span>{{vm.user.personalInfo.location}}</span>
                   </div>
                 </div>
               </div>
