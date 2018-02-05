@@ -1,0 +1,130 @@
+<div id="simple-table" class="page-layout simple fullwidth doc-page element-doc-page">
+
+  <!-- HEADER -->
+  <div class="header md-accent-bg" layout="row" layout-align="space-between">
+    <div layout="column" layout-align="center start">
+      <div class="breadcrumb" layout="row" layout-align="start center">
+        <md-icon md-font-icon="icon-home" class="s16"></md-icon>
+        <md-icon md-font-icon="icon-chevron-right" class="s16 separator"></md-icon>
+        <span class="parent">Tables</span>
+      </div>
+      <div class="title">Datatable</div>
+    </div>
+  </div>
+  <!-- / HEADER -->
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="white-bg md-whiteframe-4dp">
+      <md-card>
+
+
+
+        <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
+
+          <div class="md-toolbar-tools">
+
+            <span>Users</span>
+
+            <div flex></div>
+
+            <md-button class="md-icon-button" ng-click="getEmployeeList()">
+
+              <md-icon aria-label="refresh list" md-font-icon="icon-refresh"></md-icon>
+
+            </md-button>
+
+          </div>
+
+        </md-toolbar>
+
+
+
+        <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+
+          <div class="md-toolbar-tools">
+
+            <span>{{selected.length}} {{selected.length > 1 ? 'Users' : 'User'}} selected</span>
+
+          </div>
+
+        </md-toolbar>
+
+
+
+        <md-table-container>
+
+          <table md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
+
+            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+
+              <tr md-row>
+
+                <th md-column md-order-by="name">
+                  <span>Employee Name </span>
+                </th>
+
+                <th md-column md-order-by="type">
+                  <span>Actions</span>
+                </th>
+
+                <th md-column md-numeric md-order-by="fat.value">
+                  <span></span>
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody md-body>
+
+              <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="user in users | filter: filter.search | orderBy: query.order ">
+
+
+
+                <td md-cell>{{user.firstname}} {{user.lastname}}</td>
+
+                <td md-cell>
+                  <md-button class="md-raised md-accent" ng-click="vm.acceptDialog($event)">
+                    Accept
+                  </md-button>
+                  <md-button class="md-raised md-accent" ng-click="vm.declineDialog($event)">
+                    Decline
+                  </md-button>
+                </td>
+
+                <td md-cell>View Details</td>
+
+
+
+                <!-- <td md-cell>{{user.Id}}</td>
+
+                <td md-cell>{{user.Name}}</td>
+
+                <td md-cell>{{user.Email}}</td>
+
+                <td md-cell>{{user.Address}}</td> -->
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </md-table-container>
+
+
+
+        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{users.count}}"
+          md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="vm.getEmployeeList"></md-table-pagination>
+
+      </md-card>
+
+
+    </div>
+
+  </div>
+  <!-- / CONTENT -->
+
+</div>

@@ -1,0 +1,78 @@
+.about-section {
+  //background-image: url(../images/Health-Patterns.png);
+  background-repeat: repeat-x;
+  background-position: top;
+  padding-top: 104px;
+  margin-bottom: 55px;
+}
+
+.about-section-text {
+  text-align: center;
+  font-weight: bold;
+}
+.button {
+  cursor: pointer;
+  color: #7d7d7d;
+}
+
+.button:hover {
+  color: rgb(0,145,234);
+}
+.about-section-text h3 {
+  font-size: 53px;
+  font-weight: 600;
+  line-height: 60px;
+  margin-bottom: 23px;
+}
+
+.p-appraisal-li {
+  font-style: italic;
+}
+.about-section-text p {
+  font-size: 15px;
+  margin-bottom: 0px;
+}
+.about-section-text span {
+  font-size: 12px;
+  font-style: italic;
+}
+
+.content h2 {
+  text-align: center;
+  padding: 40px 0 40px 0;
+  font-size: 33px;
+  font-weight: bold;
+}
+
+.list li p {
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+
+.content h3 {
+  font-weight: bold;
+  font-size: 15px;
+  padding-top: 16px;
+}
+
+.content p {
+  font-size: 14px;
+  text-align: left;
+  line-height: 20px;
+  letter-spacing: normal;
+}
+
+.get-started {
+  text-align: center;
+  height: 310px;
+ // background-image: url(../images/cityscape_Vector.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.basis {
+  padding-left: 25px;
+  font-size: 14px;
+  margin-top: -15px;
+
+}
