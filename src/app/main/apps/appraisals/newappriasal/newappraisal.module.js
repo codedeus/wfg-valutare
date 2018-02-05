@@ -12,10 +12,10 @@
                   role:'newappraisal'
               },
               views:{
-                  'content@app':{
-                      templateUrl:'app/main/apps/appraisals/newappriasal/newappraisal.html',
-                      controller:'NewAppraisalController as vm'
-                  }
+                'content@app':{
+                    templateUrl:'app/main/apps/appraisals/newappriasal/newappraisal.html',
+                    controller:'NewAppraisalController as vm'
+                }
               }
           });
 

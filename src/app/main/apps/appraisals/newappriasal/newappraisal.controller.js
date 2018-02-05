@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('app.appraisals.newappraisal').
-      controller('NewAppraisalController',function(AppConstants,$http,$scope){
+      controller('NewAppraisalController',function(AppConstants,$http,$scope,$rootScope){
           var vm = this;
           vm.responsibilities = [];
           vm.jobsummaries = [];
@@ -13,7 +13,7 @@
           vm.profiledata = {};
           vm.lobs = [];
           vm.locations = [];
-          $scope.processingRequest = false;
+          $rootScope.processingRequest = false;
           getLineOfBusiness();
           getbusinessLocations();
           function getbusinessLocations(){
@@ -84,18 +84,18 @@
           }
 
           function successfunction(response){
-            $scope.processingRequest = false;
+            $rootScope.processingRequest = false;
           }
 
           function errorfunction(response){
             console.log(response);
-            $scope.processingRequest = false;
+            $rootScope.processingRequest = false;
           }
 
 
           vm.sendForm = function(){
 
-            $scope.processingRequest = true;
+            $rootScope.processingRequest = true;
             var sum = vm.foundingPhilosophy.reduce(add, 0);
 
             var philosophy = {
@@ -126,7 +126,7 @@
 
             $http.post(AppConstants.baseApiUrl+"obj",vm.objective).then(function(objresponse){
               console.log(objresponse);
-              $scope.processingRequest = false;
+              $rootScope.processingRequest = false;
               $http.post(AppConstants.baseApiUrl+"assessment/summary",vm.jobsummaries).then(function(summaryres){
                 console.log(summaryres);
 
@@ -144,45 +144,45 @@
                           console.log(overallres);
                           $http.put(AppConstants.baseApiUrl+"users/update-profile",vm.profiledata).then(function(profiledatares){
                             $http.post(AppConstants.baseApiUrl+'plans',vm.developmentPlan).then(function(success){
-                              $scope.processingRequest = false;
+                              $rootScope.processingRequest = false;
                               var message = "Yippie!!!, everthing submitted sussessfully";
                               toastr.success( "<br/>"+ message, "Success");
 
                             },function(response){
                               console.log(response);
-                              $scope.processingRequest = false;
+                              $rootScope.processingRequest = false;
                             });
                           },function(response){
                             console.log(response);
-                            $scope.processingRequest = false;
+                            $rootScope.processingRequest = false;
                           });
                         },function(overallerr){
                           console.log(overallerr);
-                          $scope.processingRequest = false;
+                          $rootScope.processingRequest = false;
                         });
                       },function(response){
                         console.log(response);
-                        $scope.processingRequest = false;
+                        $rootScope.processingRequest = false;
                       });
                     },function(response){
                       console.log(response);
-                      $scope.processingRequest = false;
+                      $rootScope.processingRequest = false;
                     });
                   },function errorfunction(response){
                     console.log(response);
-                    $scope.processingRequest = false;
+                    $rootScope.processingRequest = false;
                   });
                 },function(response){
                   console.log(response);
-                  $scope.processingRequest = false;
+                  $rootScope.processingRequest = false;
                 });
               },function (response){
                 console.log(response);
-                $scope.processingRequest = false;
+                $rootScope.processingRequest = false;
               });
             },function(response){
               console.log(response);
-              $scope.processingRequest = false;
+              $rootScope.processingRequest = false;
             });
           };
 

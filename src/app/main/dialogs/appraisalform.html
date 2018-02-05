@@ -4,19 +4,17 @@
         <h3><md-icon md-font-icon="icon-content-paste"></md-icon>Employee Appraisal Form</h3>
       </md-card>
       <fieldset id="viewfieldset">
+        <legend>EMPLOYEE PROFILE</legend>
           <div class="personal-profile" layout="row">
             <div class="profile-details" layout="column" flex>
               <div class="header">
-                  <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                      <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                          <md-icon md-font-icon="icon-pencil"></md-icon>
-                      </md-button>
+                  <h1>{{vm.selected.FullName||'N/A'}}
                   </h1>
               </div>
                 <div class="details" layout="row" layout-wrap>
                     <div flex="25">
                         <p>Line Of Business</p>
-                        <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+                        <span>{{vm.selected.lob||'N/A'}}</span>
                     </div>
                     <div flex="25">
                         <p>Recruitment Date</p>
@@ -27,15 +25,27 @@
                         <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
                     </div>
                     <div flex="25">
-                        <p>Phone Number</p>
+                        <p>Year or period covered</p>
                         <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
                     </div>
                     <div flex="25">
-                        <p>Email</p>
+                        <p>Time in present position</p>
                         <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
                     </div>
                     <div flex="25">
-                        <p>Department/Unit</p>
+                        <p>Length of service</p>
+                        <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
+                    </div>
+                    <div flex="25">
+                        <p>Appraisal date & time</p>
+                        <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
+                    </div>
+                    <div flex="25">
+                        <p>Appraisal venue</p>
+                        <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
+                    </div>
+                    <div flex="25">
+                        <p>Appraiser</p>
                         <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
                     </div>
                   </div>
@@ -43,160 +53,208 @@
               </div>
             </fieldset>
             <fieldset id="viewfieldset">
-                <div class="personal-profile" layout="row">
-                  <div class="profile-details" layout="column" flex>
-                    <div class="header">
-                        <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                            <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                                <md-icon md-font-icon="icon-pencil"></md-icon>
-                            </md-button>
-                        </h1>
+            <legend>GOALS & OBJECTIVES</legend>
+              <div class="personal-profile" layout="row">
+                <div class="profile-details" layout="column" flex>
+                  <!-- <p>A brief description of employee's understanding and contributions to the overall objective of the organisation in 2017 </p> -->
+                  <div class="details" layout="row" layout-wrap>
+                      <div flex="25">
+                          <!-- <p>RESPONSE</p> -->
+                        <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
                     </div>
-                      <div class="details" layout="row" layout-wrap>
-                          <div flex="25">
-                              <p>Line Of Business</p>
-                              <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
-                          </div>
-                          <div flex="25">
-                              <p>Recruitment Date</p>
-                              <span>{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
-                          </div>
-                          <div flex="25">
-                              <p>Location/based at </p>
-                              <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
-                          </div>
-                          <div flex="25">
-                              <p>Phone Number</p>
-                              <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
-                          </div>
-                          <div flex="25">
-                              <p>Email</p>
-                              <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
-                          </div>
-                          <div flex="25">
-                              <p>Department/Unit</p>
-                              <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </fieldset>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
                   <fieldset id="viewfieldset">
+                    <legend>EMPLOYEE’S SELF- ASSESSMENT</legend>
                       <div class="personal-profile" layout="row">
                         <div class="profile-details" layout="column" flex>
-                          <div class="header">
-                              <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                                  <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                                      <md-icon md-font-icon="icon-pencil"></md-icon>
-                                  </md-button>
-                              </h1>
-                          </div>
-                            <div class="details" layout="row" layout-wrap>
-                                <div flex="25">
-                                    <p>Line Of Business</p>
-                                    <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+                          <!-- <p>Your Job Summary: Summary of Employee's responsibilities during this period, including significant projects. </p> -->
+
+                            <div class="visits" flex>
+                                <h2 class="heading">
+                                    <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Job Summary</h2>
+                                <div class="single-visit">
+                                    <md-grid-list md-cols="2"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
+                                        <md-grid-tile>{{'MY_PATIENT.WARD_NUMBER'|translate}}</md-grid-tile>
+                                        <md-grid-tile>{{vm.selected[0]['Department'].Name}}</md-grid-tile>
+                                        <md-grid-tile>{{'MY_PATIENT.BED_NUMBER'|translate}}</md-grid-tile>
+                                        <md-grid-tile>{{vm.selected[0]['Bed'].Number}}</md-grid-tile>
+                                    </md-grid-list>
                                 </div>
-                                <div flex="25">
-                                    <p>Recruitment Date</p>
-                                    <span>{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
+                            </div>
+                            <div class="visits" flex>
+                                <h2 class="heading">
+                                    <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Adjusted Responsibilities/Additional Comments</h2>
+                                <div class="single-visit">
+                                    <md-grid-list md-cols="2"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
+                                        <md-grid-tile>{{'MY_PATIENT.WARD_NUMBER'|translate}}</md-grid-tile>
+                                        <md-grid-tile>{{vm.selected[0]['Department'].Name}}</md-grid-tile>
+                                        <md-grid-tile>{{'MY_PATIENT.BED_NUMBER'|translate}}</md-grid-tile>
+                                        <md-grid-tile>{{vm.selected[0]['Bed'].Number}}</md-grid-tile>
+                                    </md-grid-list>
                                 </div>
-                                <div flex="25">
-                                    <p>Location/based at </p>
-                                    <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
-                                </div>
-                                <div flex="25">
-                                    <p>Phone Number</p>
-                                    <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
-                                </div>
-                                <div flex="25">
-                                    <p>Email</p>
-                                    <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
-                                </div>
-                                <div flex="25">
-                                    <p>Department/Unit</p>
-                                    <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
-                                </div>
-                              </div>
+                            </div>
                             </div>
                           </div>
                         </fieldset>
                         <fieldset id="viewfieldset">
+                          <legend>PERFORMANCE APPRAISAL</legend>
                             <div class="personal-profile" layout="row">
                               <div class="profile-details" layout="column" flex>
-                                <div class="header">
-                                    <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                                        <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                                            <md-icon md-font-icon="icon-pencil"></md-icon>
-                                        </md-button>
-                                    </h1>
-                                </div>
-                                  <div class="details" layout="row" layout-wrap>
-                                      <div flex="25">
-                                          <p>Line Of Business</p>
-                                          <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+
+                                  <div class="details" layout="column" layout-wrap>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">Accomplishment of key responsibilities/deliverables:</p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
                                       </div>
-                                      <div flex="25">
-                                          <p>Recruitment Date</p>
-                                          <span>{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">Achievement of the goals established during the past year: </p>
+                                          <span style="margin:20px;">{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
                                       </div>
-                                      <div flex="25">
-                                          <p>Location/based at </p>
-                                          <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">Identify areas of exceptional performance on your part that should be particularly noted.  Provide specific examples. </p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
                                       </div>
-                                      <div flex="25">
-                                          <p>Phone Number</p>
-                                          <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">In your current position, can you share an example where you have demonstrated your leadership? Provide specific examples.</p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
                                       </div>
-                                      <div flex="25">
-                                          <p>Email</p>
-                                          <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">In your current position, can you share an example where you have taken ownership? Provide specific examples.</p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
                                       </div>
-                                      <div flex="25">
-                                          <p>Department/Unit</p>
-                                          <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;">Identify areas of your performance needing more attention or improvement.  Provide specific examples.</p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
+                                      </div>
+                                      <div flex>
+                                          <p style="font-weight: bold; font-size:15px;"> Apart from your current role, is there any other role in the organization you will like to function in? Please specify the role,
+                                             state the reasons for your choice and articulate how you intend to contribute to the goal of the organization by functioning in this role</p>
+                                          <span style="margin:20px;">{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </fieldset>
-                              <fieldset id="viewfieldset">
-                                  <div class="personal-profile" layout="row">
-                                    <div class="profile-details" layout="column" flex>
-                                      <div class="header">
-                                          <h1>{{(vm.selected[0]['Patient'].Surname&&vm.selected[0]['Patient'].OtherNames)? vm.selected[0]['Patient'].Surname +' '+ vm.selected[0]['Patient'].OtherNames:vm.selected[0].Name||'N/A'}}
-                                              <md-button class="md-icon-button" ng-click="vm.RespondToQuickAction('edit')" ng-show="vm.showEditButton" ng-disabled="vm.selected.length==0">
-                                                  <md-icon md-font-icon="icon-pencil"></md-icon>
-                                              </md-button>
-                                          </h1>
-                                      </div>
-                                        <div class="details" layout="row" layout-wrap>
-                                            <div flex="25">
-                                                <p>Line Of Business</p>
-                                                <span>{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
-                                            </div>
-                                            <div flex="25">
-                                                <p>Recruitment Date</p>
-                                                <span>{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
-                                            </div>
-                                            <div flex="25">
-                                                <p>Location/based at </p>
-                                                <span>{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
-                                            </div>
-                                            <div flex="25">
-                                                <p>Phone Number</p>
-                                                <span>{{(!vm.selected[0]['Patient'].PhoneNumber)?'N/A':vm.selected[0]['Patient'].PhoneNumber}}</span>
-                                            </div>
-                                            <div flex="25">
-                                                <p>Email</p>
-                                                <span>{{(!vm.selected[0]['Gender'].Name)?'N/A':vm.selected[0]['Gender'].Name}}</span>
-                                            </div>
-                                            <div flex="25">
-                                                <p>Department/Unit</p>
-                                                <span>{{(!vm.selected[0]['MaritalState'].Name)?'N/A':vm.selected[0]['MaritalState'].Name}}</span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </fieldset>
+              </fieldset>
+      <fieldset id="viewfieldset">
+      <legend>FOUNDING PHILOSOPHY</legend>
+        <div class="personal-profile" layout="row">
+          <div class="profile-details" layout="column" flex>
+            <md-table-container>
+              <table md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
+                <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+                  <tr md-row>
+                    <th md-column md-order-by="name"><span>Creed </span></th>
+                    <th md-column md-order-by="type"><span>Definitions</span></th>
+                    <th md-column md-order-by="type"><span>Ratings</span></th>
+                  </tr>
+                </thead>
+                <tbody md-body>
+                  <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="philosophy in vm.foundingPhilosophy">
+                    <td md-cell>{{philosophy.name}}</td>
+                    <td md-cell>{{philosophy.definition}}</td>
+                    <td md-cell>
+                        {{philosophy.rating==4?'Exceptional':philosophy.rating==3?'Good':philosophy.rating==2?'Below Average':'Poor'}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </md-table-container>
+            <p>
+              <div flex>
+                  <p style="font-weight: bold; font-size:15px;">Key achievement / client feedback on my performance in relation to the founding philosophy</p>
+                  <span style="margin:20px;">{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+              </div>
+            </p>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id="viewfieldset">
+      <legend>OVERALL ASSESSMENT</legend>
+        <div class="personal-profile" layout="row">
+          <div class="profile-details" layout="column" flex>
+
+            <div class="details" layout="row" layout-wrap>
+                <div flex="25">
+
+                  <span>{{
+                    (!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number
+                  }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id="viewfieldset">
+      <legend>DEVELOPMENT PLAN</legend>
+        <div class="personal-profile" layout="row">
+          <div class="profile-details" layout="column" flex>
+
+            <div class="details" layout="row" layout-wrap>
+                <fieldset>
+                    <legend>Performance Enhancement (Current Position)</legend>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Accomplishment of key responsibilities/deliverables:</p>
+                        <span style="margin:20px;">{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+                    </div>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Achievement of the goals established during the past year: </p>
+                        <span style="margin:20px;">{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
+                    </div>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Identify areas of exceptional performance on your part that should be particularly noted.  Provide specific examples. </p>
+                        <span style="margin:20px;">{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Career Development (Future Positions)</legend>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Accomplishment of key responsibilities/deliverables:</p>
+                        <span style="margin:20px;">{{(!vm.selected[0]['Patient'].Number)?'N/A':vm.selected[0]['Patient'].Number}}</span>
+                    </div>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Achievement of the goals established during the past year: </p>
+                        <span style="margin:20px;">{{(!vm.selected[0].Age)?'N/A':vm.selected[0].Age}}</span>
+                    </div>
+                    <div flex>
+                        <p style="font-weight: bold; font-size:15px;">Identify areas of exceptional performance on your part that should be particularly noted.  Provide specific examples. </p>
+                        <span style="margin:20px;">{{(!vm.selected[0]['Religion'].Name)?'N/A':vm.selected[0]['Religion'].Name}}</span>
+                    </div>
+                </fieldset>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <fieldset id="viewfieldset">
+      <legend>APPROVE/DECLINE</legend>
+        <div class="personal-profile" layout="row">
+          <div class="profile-details" layout="column" flex>
+            <div class="details" layout="row" layout-wrap>
+              <div layout="row" flex>
+                <div flex="10">
+                    <label class="tiredlabel"><span class="">*</span> Comment:</label>
+                </div>
+                <md-input-container class="tiredinput" flex="80">
+                  <label></label>
+                  <textarea md-no-asterisk type="text" ng-model="vm.profiledata.FullName"></textarea>
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div layout="row" layout-align="center center">
+          <md-button  class="md-raised md-accent"  ng-click="cancel()" style="margin-right:20px;">
+              Approve
+          </md-button>
+          <md-button  class="md-raised md-accent"  ng-click="cancel()" style="margin-right:20px;">
+              Decline
+          </md-button>
+          <md-button  class="md-raised md-accent"  ng-click="cancel()" style="margin-right:20px;">
+              Close
+          </md-button>
+        </div>
     </div>
   </md-dialog>

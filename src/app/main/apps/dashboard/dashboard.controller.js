@@ -18,7 +18,9 @@
 
 
     function DialogController($scope, $rootScope, $mdDialog, $mdMedia, $mdEditDialog, $q, dialogData) {
-
+      $scope.cancel = function(){
+        $mdDialog.cancel();
+      }
     }
 
 })();
