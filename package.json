@@ -6,9 +6,6 @@
   "license": "MIT",
   "description": "Health Information Management System",
   "dependencies": {
-    "angular": "^1.5.8",
-    "angular-material": "^1.1.4",
-    "angular-mocks": "^1.5.8",
     "bower": "1.8.2",
     "express": "^4.15.2",
     "bunyan": "^1.8.12",

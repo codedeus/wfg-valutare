@@ -24,13 +24,19 @@
     </div>
 </div>
 
-<md-dialog aria-label="Employee Appraisal Form"  draggable >
+<md-dialog style="max-width: 90%; max-height: 90%;" aria-label="Employee Appraisal Form" flex draggable >
+    <md-toolbar style="background:rgb(3,155,229);">
+        <div class="md-toolbar-tools">
+          <h2>Employee Appraisal Form</h2>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="cancel()">
+            <md-icon md-svg-src="./assets/icons/svg/close-button.svg" aria-label="Close dialog"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-dialog-content>
 
     <div layout="column" class="page" layout-fill>
-
-      <md-card class="default header" layout="column" layout-align="center left">
-        <h3><md-icon md-font-icon="icon-content-paste"></md-icon>Employee Appraisal Form</h3>
-      </md-card>
 
       <fieldset id="viewfieldset">
         <legend>EMPLOYEE PROFILE</legend>
@@ -105,18 +111,53 @@
                                 <h2 class="heading">
                                     <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Job Summary</h2>
                                 <div class="single-visit">
-                                    <md-grid-list md-cols="2" ng-repeat="summary in jobSummary"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
+                                    <md-table-container>
+                                        <table md-table ng-model="selected" md-progress="promise">
+                                          <!-- <thead md-head>
+                                            <tr md-row>
+                                              <th md-column md-order-by="name" ><span style="font-weight: bold; font-size:15px;">Creed </span></th>
+                                              <th md-column md-order-by="type"><span style="font-weight: bold; font-size:15px;">Definitions</span></th>
+                                              <th md-column md-order-by="type"><span style="font-weight: bold; font-size:15px;">Ratings</span></th>
+                                            </tr>
+                                          </thead> -->
+                                          <tbody md-body>
+                                            <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="summary in jobSummary">
+                                              <td md-cell style="padding: 0;">{{$index + 1}}</td>
+                                              <td md-cell>{{summary.summary}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </md-table-container>
+                                    <!-- <md-grid-list md-cols="2" ng-repeat="summary in jobSummary"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
                                         <md-grid-tile>{{summary.summary}}</md-grid-tile>
-                                    </md-grid-list>
+                                    </md-grid-list> -->
                                 </div>
                             </div>
                             <div class="visits" flex>
-                                <h2 class="heading">
+                                <h2 class="heading" style="margin-top:40px;">
                                     <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Adjusted Responsibilities/Additional Comments</h2>
-                                <div class="single-visit">
-                                    <md-grid-list md-cols="2" ng-repeat="comment in additionalComments"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
+                                <div>
+                                    <md-table-container>
+                                        <table md-table ng-model="selected" md-progress="promise">
+                                          <!-- <thead md-head>
+                                            <tr md-row>
+                                              <th md-column md-order-by="name" ><span style="font-weight: bold; font-size:15px;">Creed </span></th>
+                                              <th md-column md-order-by="type"><span style="font-weight: bold; font-size:15px;">Definitions</span></th>
+                                              <th md-column md-order-by="type"><span style="font-weight: bold; font-size:15px;">Ratings</span></th>
+                                            </tr>
+                                          </thead> -->
+                                          <tbody md-body>
+                                            <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="comment in additionalComments">
+                                              <td md-cell style="padding: 0;">{{$index + 1}}</td>
+                                              <td md-cell>{{comment.comment}}</td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                      </md-table-container>
+
+                                  <!-- <md-grid-list md-cols="2" ng-repeat="comment in additionalComments"  md-gutter="1em" md-row-height="15px" style="width: 300px;">
                                         <md-grid-tile>{{comment.comment}}</md-grid-tile>
-                                    </md-grid-list>
+                                    </md-grid-list> -->
                                 </div>
                             </div>
                             </div>
@@ -270,7 +311,7 @@
                 </div>
                 <md-input-container class="tiredinput" flex="80">
                   <label></label>
-                  <textarea md-no-asterisk type="text" ng-model="review.comment"></textarea>
+                  <textarea md-no-asterisk type="text" ng-model="review.comment" required></textarea>
                 </md-input-container>
               </div>
             </div>
@@ -278,15 +319,22 @@
         </div>
       </fieldset>
       <div layout="row" layout-align="center center">
-          <md-button  class="md-raised md-accent"  ng-click="submitReveiw(true)" style="margin-right:20px;">
+          <md-button  class="md-raised md-accent"  ng-click="submitReveiw(true)" ng-disabled="review.finalRating==null||review.comment==null" style="margin-right:20px;">
               Approve
           </md-button>
-          <md-button  class="md-raised md-accent"  ng-click="submitReveiw(false)" style="margin-right:20px;">
+          <md-button  class="md-raised md-accent"  ng-click="submitReveiw(false)" ng-disabled="review.finalRating==null||review.comment==null" style="margin-right:20px;">
               Decline
           </md-button>
-          <md-button  class="md-raised md-accent"  ng-click="cancel()" style="margin-right:20px;">
-              Close
-          </md-button>
         </div>
-    </div>
+  </div>
+      </md-dialog-content>
+  <!-- <div class="buttom-button">
+      <button ng-click="vm.RespondToQuickAction('new')">
+          <md-icon md-svg-src="./assets/icons/svg/round-add-button.svg"></md-icon>
+          Close
+      </button>
+  </div> -->
   </md-dialog>
+
+
+

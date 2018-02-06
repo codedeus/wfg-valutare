@@ -17,18 +17,27 @@
       $scope.selected = [];
       $scope.users = [];
 
-      $http
+      function getPendingAppraisals(){
+        $rootScope.processingRequest = true;
+        $http
         .get(AppConstants.baseApiUrl + "appraisal/sub")
         .then(function(response) {
+          $rootScope.processingRequest = false;
           $scope.users = response.data;
+        },function(){
+          $rootScope.processingRequest = false;
+          UtilityService.showAlert('error occured!','error occured','Alert Dialog');
         });
+      }
+
+      getPendingAppraisals();
 
       vm.getAppraisalDetails = function(employeeId,ev,templateFile){
         $rootScope.processingRequest = true;
         $http.get(AppConstants.baseApiUrl+'appraisal/'+employeeId.id).then(function(response){
 
           console.log(response);
-         UtilityService.showDialog(ev, templateFile, {},'ViewAppraisalController');
+         UtilityService.showDialog(ev, templateFile, response.data,'ViewAppraisalController');
         });
       };
 

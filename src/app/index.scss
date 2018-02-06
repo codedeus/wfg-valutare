@@ -184,4 +184,26 @@ table.md-table:not(.md-row-select) td.md-cell:first-child, table.md-table:not(.m
     //padding-top: 13px;
 }
 
+.buttom-button {
+  z-index: 2000;
+  height: 71px;
+  width: 100%;
+  border-radius: 3px;
+  background-color: #ffffff;
+  box-shadow: 1px -3px 14px 0 rgba(128, 128, 128, 0.5);
+  text-align: center;
+  padding: 8px;
+}
 
+
+
+.buttom-button button {
+	height: 55px;
+  width: 252px;
+  position: relative;
+	border-radius: 30px;
+	background-color: #0288DF;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
