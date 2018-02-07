@@ -1,43 +1,43 @@
 <div layout="row" id="patient-billing" ng-cloak="" layout-fill>
 
-    <div layout="column" class="page" flex>
-      <md-card class="default header" layout="row" layout-align="center">
-          <h3> </h3>
-      </md-card>
+  <div layout="column" class="page" flex>
+    <md-card class="default header" layout="row" layout-align="center">
+      <h3> </h3>
+    </md-card>
 
-      <md-content class="body" layout="column" flex layout-margin ms-scroll>
-        <fieldset id="viewfieldset">
+    <md-content class="body" layout="column" flex layout-margin ms-scroll>
+      <fieldset id="viewfieldset">
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="header">
-                <h1>{{vm.user.firstname+' '+vm.user.lastname}}
-                </h1>
+              <h1>{{vm.user.firstname+' '+vm.user.lastname}}
+              </h1>
 
 
             </div>
             <div class="details" layout="row" layout-wrap>
-                <div flex="25">
-                    <p style="font-weight: bold; font-size:18px;">Email</p>
-                    <span>{{vm.user.email}}</span>
-                </div>
-            </div>
-              <div class="details" layout="row" layout-wrap>
-                  <div flex="25">
-                      <p style="font-weight: bold; font-size:18px;">Line Of Business</p>
-                      <span>{{vm.user.personalInfo.lob}}</span>
-                  </div>
-                  <div flex="25">
-                      <p style="font-weight: bold; font-size:18px;">Recruitment Date</p>
-                      <span>{{vm.user.personalInfo.recruitmentDate|date}}</span>
-                  </div>
-                  <div flex="25">
-                      <p style="font-weight: bold; font-size:18px;">Location/based at </p>
-                      <span>{{vm.user.personalInfo.location}}</span>
-                  </div>
-                </div>
+              <div flex="40">
+                <p style="font-weight: bold; font-size:20px;">Email:</p>
+                <span>{{vm.user.email}}</span>
+              </div>
+              <div flex="40">
+                <p style="font-weight: bold; font-size:20px;">Line Of Business:</p>
+                <span>{{vm.user.personalInfo.lob}}</span>
               </div>
             </div>
-          </fieldset>
-        </md-content>
-    </div>
+            <div class="details" layout="row" layout-wrap>
+              <div flex="40">
+                <p style="font-weight: bold; font-size:20px;">Recruitment Date:</p>
+                <span>{{vm.user.personalInfo.recruitmentDate|date}}</span>
+              </div>
+              <div flex="40">
+                <p style="font-weight: bold; font-size:20px;">Location/based at:</p>
+                <span>{{vm.user.personalInfo.location}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </md-content>
+  </div>
 </div>

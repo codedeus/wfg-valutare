@@ -24,21 +24,21 @@
                         <md-tab-body id="supplier-register" class="page">
                             <form name="wizardStep1" class="md-inline-form" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Profile</h3>
                                 </md-card>
-                                <fieldset>
+                                <fieldset class="profile-details-style">
 
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel"><span class="">*</span> Full Name:</label>
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.FullName"></textarea>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.FullName">
                                         </md-input-container>
                                     </div>
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel"><span class="">*</span> Line of Business:</label>
                                         </div>
@@ -62,7 +62,7 @@
                                             </md-select>
                                         </md-input-container>
                                     </div>
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel"><span class="">*</span> Year/period covered</label>
                                         </div>
@@ -79,7 +79,7 @@
                                         </md-input-container>
                                     </div>
 
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel">Recruitment Date:</label>
                                         </div>
@@ -88,13 +88,13 @@
                                             <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.profiledata.recruitmentDate">
                                         </md-input-container>
                                     </div>
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel">Length of service:</label>
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.lengthOfService"></textarea>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.lengthOfService">
                                         </md-input-container>
                                     </div>
                                     <!-- <div layout="row">
@@ -106,22 +106,22 @@
                                             <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.profiledata.appraisalDate">
                                         </md-input-container>
                                     </div> -->
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel">Appraisal venue:</label>
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.appraisalVenue"></textarea>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.appraisalVenue">
                                         </md-input-container>
                                     </div>
-                                    <div layout="row">
+                                    <div layout="row" class="Profile-input">
                                         <div flex="20">
                                             <label class="tiredlabel">Appraiser:</label>
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.profiledata.appraiser"></textarea>
+                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.appraiser">
                                         </md-input-container>
                                     </div>
                                 </fieldset>
@@ -144,7 +144,7 @@
                         <md-tab-body>
                             <form name="wizardStep2" class="md-inline-form" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Goals & Objectives</h3>
                                 </md-card>
                                 <div class="about-section-text">
@@ -177,25 +177,25 @@
                         <md-tab-body>
                             <form name="wizardStep3" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Self Assessment</h3>
                                 </md-card>
                                 <ol>
-                                    <li>
-                                        <div class="about-section-text">
+                                    <li class="number-list-tyle">
+                                        <div class="about-section-text aboutTextStyle">
                                             <p>Your Job Summary:  Provide a summary of your responsibilities during this period, including significant projects.  </p>
                                         </div>
 
-                                        <ol>
+                                        <ol class="romanStyle">
                                             <li ng-repeat="jobsummary in vm.jobsummaries track by $index">
                                                 <div layout="row">
-                                                    <md-input-container flex="70">
+                                                    <md-input-container flex="70" class="options-style">
                                                         <input md-no-asterisk type="text" ng-model="jobsummary.summary">
                                                     </md-input-container>
                                                     <div flex="20">
-                                                        <md-button class="md-raised md-accent" aria-label="remove selected jobsummary" ng-click="vm.removeSelectedObject(jobsummary,'jobsummary')">
+                                                        <md-button class="" aria-label="remove selected jobsummary" ng-click="vm.removeSelectedObject(jobsummary,'jobsummary')">
                                                             <md-icon  md-svg-src="./assets/icons/svg/added/Delete.svg"
-                                                              class="button"></md-icon>
+                                                              class="deletebutton"></md-icon>
                                                         </md-button>
                                                     </div>
                                                 </div>
@@ -208,20 +208,21 @@
                                             </md-input-container>
                                         </div>
                                     </li>
-                                    <li>
+                                    <li class="number-list-tyle">
                                         <div class="about-section-text">
                                             <p>Adjusted Responsibilities/Additional Comments: Note any job changes, responsibilities, or projects added since the last update of your job description, plan of work or performance goals/objectives, as well as any special circumstances that provide a context for this performance review.  </p>
                                           </div>
 
-                                          <ol>
+                                          <ol class="romanStyle">
                                               <li ng-repeat="objective in vm.responsibilities track by $index">
                                                   <div layout="row">
-                                                      <md-input-container flex="70">
+                                                      <md-input-container flex="70" class="options-style">
                                                           <input md-no-asterisk type="text" ng-model="objective.comment">
                                                       </md-input-container>
                                                       <div flex="20">
-                                                          <md-button class="md-raised md-accent" aria-label="remove selected objective" ng-click="vm.removeSelectedObject(objective,'responsibility')">
-                                                              <ng-md-icon icon="delete" md-menu-align-target></ng-md-icon>
+                                                          <md-button aria-label="remove selected objective" ng-click="vm.removeSelectedObject(objective,'responsibility')">
+                                                            <md-icon  md-svg-src="./assets/icons/svg/added/Delete.svg"
+                                                              class="deletebutton"></md-icon>
                                                           </md-button>
                                                       </div>
                                                   </div>
@@ -380,11 +381,11 @@
                         <md-tab-body>
                             <form name="wizardStep4" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Founding Philosophy</h3>
                                 </md-card>
                               <ol>
-                                <li>
+                                <li class="number-list-tyle">
                                 <div class="about-section-text">
                                     <p>Please rate your level of understanding of and/or performance against the firm’s founding philosophy using the following metrics:</p>
                                     <span class="about-section-text">(4 = Exceptional         3 = Good         2 = Below Average      1 = Poor)</span>
@@ -454,7 +455,7 @@
                         <md-tab-body>
                             <form name="wizardStep5" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Overall Assessment</h3>
                                 </md-card>
                                 <div class="about-section-text">
@@ -521,7 +522,7 @@
                         <md-tab-body id="supplier-register" class="page">
                             <form name="wizardStep6" class="md-inline-form" ms-form-wizard-form novalidate>
                                 <md-card id="defaultcard" layout="column" layout-align="center">
-                                    <h3>
+                                    <h3 class="PanelStyle">
                                         <md-icon md-font-icon="icon-content-paste"></md-icon>Development Plan</h3>
                                 </md-card>
                                 <div class="about-section-text">
@@ -535,7 +536,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.currentPosition.competences"></textarea>
+                                            <textarea class="form-textarea" md-no-asterisk type="text" ng-model="vm.currentPosition.competences"></textarea>
                                         </md-input-container>
                                     </div>
 
