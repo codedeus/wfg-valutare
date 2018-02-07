@@ -20,7 +20,8 @@
             'app.appraisals',
 
             'app.settings',
-            'md.data.table'
+            'md.data.table',
+
            //added for components
             // 'ngWebworker',
 
@@ -40,5 +41,6 @@
             // Components
             //'app.components'
             //Third-party libraries
+            'lfNgMdFileInput'
         ]);
 })();
