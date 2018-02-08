@@ -1,12 +1,11 @@
 <div layout="row" ng-cloak="" layout-fill>
 
     <div layout="column" class="page" flex>
-      <md-card class="default header" layout="row" layout-align="center">
-          <h3> </h3>
+      <md-card class="default header" layout="row">
+          <h3><span>Appraisals</span></h3>
       </md-card>
         <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
           <div class="md-toolbar-tools">
-            <span>Appraisals</span>
             <div flex></div>
             <md-button class="md-icon-button" ng-click="getEmployeeList()">
               <md-icon aria-label="refresh list" md-font-icon="icon-refresh"></md-icon>
@@ -38,9 +37,9 @@
 
             <tbody md-body>
               <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="user in users | filter: filter.search | orderBy: query.order ">
-                <td md-cell>{{user.firstname}} {{user.lastname}}</td>
+                <td md-cell class="nameStlye">{{user.firstname}} {{user.lastname}}</td>
 
-                <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
+                <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/visibility-button.svg"
                   class="button"></md-icon></td>
               </tr>
             </tbody>
