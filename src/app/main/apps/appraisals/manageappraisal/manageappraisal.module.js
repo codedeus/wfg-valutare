@@ -8,7 +8,7 @@
       url: "/manageappraisal",
       data: {
         name: "Manage Appraisal",
-        role: "manageappraisal"
+        roles: ['ADMIN', 'SUPER_ADMIN', 'LINE_MANAGER', 'TOP_MANAGER','HR']
       },
       views: {
         "content@app": {
@@ -17,7 +17,7 @@
           controller: "ManageAppraisalController as vm"
         }
       }
-    })
+    });
 
     $translatePartialLoaderProvider.addPart("app/main/apps/appraisals/manageappraisal");
   }

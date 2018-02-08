@@ -20,7 +20,7 @@
           url: '/dashboard',
           data: {
               role: 'dashboard',
-              name: 'My Profile'
+              roles: ['ADMIN', 'SUPER_ADMIN', 'LINE_MANAGER', 'TOP_MANAGER','HR','USER']
           },
           views: {
               'content@app': {

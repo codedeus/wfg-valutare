@@ -23,7 +23,6 @@
           $http
           .post("https://murmuring-springs-18419.herokuapp.com/login", vm.form)
           .then(function(response) {
-            debugger;
             if (response.data !== "" && response.data != null) {
               $scope.processingRequest = false;
               $http.defaults.headers.common['X-AUTH-TOKEN'] = response.data.token;

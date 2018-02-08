@@ -1,0 +1,55 @@
+<div layout="row" id="users" ng-cloak="" layout-fill>
+
+  <div layout="column" class="page" flex>
+      <md-card class="default header" layout="column" layout-align="center left">
+          <h3>
+
+          </h3>
+      </md-card>
+      <fieldset>
+        <legend>Download Template</legend>
+        <div layout="row">
+          <md-button class="md-accent md-raised" ng-click="vm.downloadTemlate()">Download Template</md-button>
+
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Upload Template</legend>
+        <md-input-container>
+          <label for="excelFile"></label>
+
+          <input id="excelFileInput" accept=".xls,.xlsx" type="file" import-from-excel/>
+        </md-input-container>
+        <md-button class="md-accent md-raised" id="employeelistupload" ng-click="vm.uploadTemlate()">Upload Template</md-button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Employees</legend>
+        <md-table-container>
+          <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+            <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
+              <tr md-row>
+                <th md-column md-order-by="name"><span>First Name </span></th>
+                <th md-column md-order-by="type"><span>Last Name</span></th>
+                <th md-column md-desc><span>Email</span></th>
+                <th md-column><span>Role</span></th>
+                <th md-column ><span>Line of Business</span></th>
+              </tr>
+            </thead>
+            <tbody md-body>
+              <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="user in employees | filter: filter.search | orderBy: query.order ">
+
+                <td md-cell>{{user.firstname}}</td>
+                <td md-cell>{{user.lastname}}</td>
+                <td md-cell>{{user.email}}</td>
+                <td md-cell>{{user.roleName}}</td>
+                <td md-cell>{{user.lob}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </md-table-container>
+      </fieldset>
+
+    </div>
+</div>
