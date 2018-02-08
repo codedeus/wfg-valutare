@@ -33,7 +33,7 @@
 
           <tbody md-body>
             <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="user in users | filter: filter.search | orderBy: query.order ">
-              <td md-cell>{{user.firstname}} {{user.lastname}}</td>
+              <td md-cell class="nameStlye">{{user.firstname}} {{user.lastname}}</td>
               <td md-cell>{{user.email}}</td>
               <td md-cell>{{user.lob}}</td>
               <td md-cell>{{user.appraisalDate}}</td>

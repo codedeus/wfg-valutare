@@ -6,6 +6,10 @@
   margin-bottom: 55px;
 }
 
+.delete_button {
+  margin: -4px 8px;
+}
+
 .PanelStyle {
   padding: 5px 30px;
 }
@@ -483,6 +487,10 @@ md-input-container > md-select {
     order: 2;
     border: 1px solid #ccc;
     border-radius: 7px;
+}
+
+.delete_button:hover {
+    background-color: red;
 }
 
 .profile-details-style {
