@@ -2,7 +2,8 @@
   'use strict';
 
   angular
-      .module('fuse').directive('draggable', function() {
+      .module('fuse')
+      .directive('draggable', function() {
           return {
               // A = attribute, E = Element, C = Class and M = HTML Comment
               restrict: 'A',
@@ -16,7 +17,8 @@
                   });
               }
           };
-      }).directive('confirmPwd', function($interpolate, $parse) {
+      })
+      .directive('confirmPwd', function($interpolate, $parse) {
         return {
             require: 'ngModel',
             link: function(scope, elem, attr, ngModelCtrl) {
@@ -34,5 +36,17 @@
                 };
             }
         };
-    });
+    }).directive('importFromExcel', function(UtilityService) {
+      var directive = {
+          restrict: 'A',
+          link: linkFunc
+      };
+      return directive;
+
+      function linkFunc(scope, element) {
+        element.change(function (event) {
+          UtilityService.importFromExcel(event.originalEvent);
+        });
+      }
+  });
 })();

@@ -6,9 +6,9 @@
   "license": "MIT",
   "description": "Health Information Management System",
   "dependencies": {
-    "bower": "1.8.2",
-    "express": "^4.15.2",
+    "alasql": "^0.4.5",
     "bunyan": "^1.8.12",
+    "express": "^4.15.2",
     "gulp-concat": "^2.6.1",
     "gulp-minify": "^2.1.0",
     "node-sass": "^4.5.3",

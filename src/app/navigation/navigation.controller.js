@@ -6,7 +6,7 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope,AuthenticationService,$state,$location)
+    function NavigationController($scope,$state,$location)
     {
         var vm = this;
         var originatorEv;
@@ -46,7 +46,7 @@
         }
 
         vm.signOut = function(){
-            AuthenticationService.ClearCredentials();
+            //AuthenticationService.ClearCredentials();
             $state.go('app.login');
         }
 
