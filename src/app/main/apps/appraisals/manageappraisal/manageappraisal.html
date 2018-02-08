@@ -1,39 +1,32 @@
 <div layout="row" id="users" ng-cloak="" layout-fill>
-
   <div layout="column" class="page" flex>
-      <md-card class="default header" layout="column" layout-align="center left">
-        <h3>
+    <md-card class="default header" layout="column" layout-align="center left">
 
-        </h3>
-      </md-card>
-        <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
-          <div class="md-toolbar-tools">
-            <span>Appraisals</span>
-            <div flex></div>
-            <md-button class="md-icon-button" ng-click="getEmployeeList()">
-              <md-icon aria-label="refresh list" md-font-icon="icon-refresh"></md-icon>
-            </md-button>
-          </div>
-        </md-toolbar>
-
-
-        <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
-          <div class="md-toolbar-tools">
-            <span>{{selected.length}} {{selected.length > 1 ? 'Users' : 'User'}} selected</span>
-          </div>
-        </md-toolbar>
+    </md-card>
+    <fieldset>
+      <legend>View</legend>
+      <md-radio-group layout="row" layout-align="center space-between" ng-model="vm.section">
+        <md-radio-button value="pending">Pending List</md-radio-button>
+        <md-radio-button value="reviewd">Reviewed List</md-radio-button>
+        <md-radio-button value="approved">Approved List</md-radio-button>
+    </md-radio-group>
+    </fieldset>
+    <div class="table" style="margin:25px;">
         <md-table-container>
           <table md-table md-row-select="options.rowSelection" multiple="{{options.multiSelect}}" ng-model="selected" md-progress="promise">
             <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
               <tr md-row>
-                <th md-column md-order-by="name">
-                  <span>Employee Name </span>
+                <th md-column>
+                  <span>Full Name </span>
                 </th>
-
-
-
-                <th md-column md-numeric md-order-by="fat.value">
-                  <span></span>
+                <th md-column>
+                  <span>Email </span>
+                </th>
+                <th md-column>
+                  <span>Line of Business </span>
+                </th>
+                <th md-column>
+                  <span>Appraisal Date </span>
                 </th>
               </tr>
             </thead>
@@ -41,17 +34,20 @@
             <tbody md-body>
               <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="user in users | filter: filter.search | orderBy: query.order ">
                 <td md-cell>{{user.firstname}} {{user.lastname}}</td>
-
-                <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
-                  class="button"></md-icon></td>
+                <td md-cell>{{user.email}}</td>
+                <td md-cell>{{user.lob}}</td>
+                <td md-cell>{{user.appraisalDate}}</td>
+                <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/view-list-button.svg"
+                  class="button">view</md-icon></td>
               </tr>
             </tbody>
           </table>
+          <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{employees.count}}"
+          md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="vm.getEmployeeList"></md-table-pagination>
         </md-table-container>
 
-        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{users.count}}"
-          md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="vm.getEmployeeList"></md-table-pagination>
 
+      </div>
           <!-- <td md-cell><md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/round-add-button.svg"
             class="button"></md-icon></td> -->
   </div>

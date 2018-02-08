@@ -15,7 +15,9 @@
       var vm = this;
 
       $scope.selected = [];
-      $scope.users = [];
+      $scope.employees = [];
+
+      vm.appraisalStatus = 'pending';
 
       function getPendingAppraisals(){
         $rootScope.processingRequest = true;

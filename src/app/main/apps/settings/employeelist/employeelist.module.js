@@ -9,7 +9,7 @@
               url:'/employeelist',
               data:{
                   name:'Employee List',
-                  role:'employeelist'
+                  roles: ['SUPER_ADMIN', 'TOP_MANAGER','HR']
               },
               views:{
                 'content@app':{

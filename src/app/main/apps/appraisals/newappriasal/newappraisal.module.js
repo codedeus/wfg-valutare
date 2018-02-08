@@ -9,7 +9,7 @@
               url:'/newappraisal',
               data:{
                   name:'New Appraisal',
-                  role:'newappraisal'
+                  roles: ['ADMIN','USER', 'SUPER_ADMIN', 'LINE_MANAGER']
               },
               views:{
                 'content@app':{

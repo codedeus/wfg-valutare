@@ -21,7 +21,7 @@
 
           <input id="excelFileInput" accept=".xls,.xlsx" type="file" import-from-excel/>
         </md-input-container>
-        <md-button class="md-accent md-raised" ng-click="vm.uploadTemlate()">Upload Template</md-button>
+        <md-button class="md-accent md-raised" id="employeelistupload" ng-click="vm.uploadTemlate()">Upload Template</md-button>
       </fieldset>
 
       <fieldset>
@@ -34,7 +34,6 @@
                 <th md-column md-order-by="type"><span>Last Name</span></th>
                 <th md-column md-desc><span>Email</span></th>
                 <th md-column><span>Role</span></th>
-                <th md-column md-desc><span>Recruitment Date</span></th>
                 <th md-column ><span>Line of Business</span></th>
               </tr>
             </thead>
@@ -45,9 +44,7 @@
                 <td md-cell>{{user.lastname}}</td>
                 <td md-cell>{{user.email}}</td>
                 <td md-cell>{{user.roleName}}</td>
-                <td md-cell>{{user.email}}</td>
-                <td md-cell>{{user.roleName}}</td>
-
+                <td md-cell>{{user.lob}}</td>
               </tr>
             </tbody>
           </table>
