@@ -16,10 +16,10 @@
         msNavigationServiceProvider.saveItem('settings', {
             title: 'Settings',
             weight: 1,
-            icon: 'icon-cog',
-            hidden:function(){
-              return localitem.roles=='USER';
-            }
+            icon: 'icon-cog'
+            // hidden:function(){
+            //   return localitem.roles=='USER'||localitem.roles=='LINE_MANAGER';
+            // }
         });
 
         msNavigationServiceProvider.saveItem("settings.employeelist", {

@@ -22,18 +22,18 @@
 
     msNavigationServiceProvider.saveItem("appraisals.newappraisal", {
       title: "New Appraisal",
-      state: "app.newappraisal",
-      hidden:function(){
-        return (localitem.roles!='USER' && localitem.roles!='LINE_MANAGER');
-      }
+      state: "app.newappraisal"
+      // hidden:function(){
+      //   return (localitem.roles!='USER' && localitem.roles!='LINE_MANAGER');
+      // }
     });
 
     msNavigationServiceProvider.saveItem("appraisals.manageappraisal", {
       title: "Manage Appraisal",
-      state: "app.manageappraisal",
-      hidden:function(){
-        return localitem.roles=='USER';
-      }
+      state: "app.manageappraisal"
+      // hidden:function(){
+      //   return localitem.roles=='USER';
+      // }
     });
   }
 })();

@@ -6,7 +6,7 @@
         .controller('NavigationController', NavigationController);
 
     /** @ngInject */
-    function NavigationController($scope,$state,$location)
+    function NavigationController($scope,$state,$location,$cookieStore)
     {
         var vm = this;
         var originatorEv;
@@ -47,7 +47,11 @@
 
         vm.signOut = function(){
             //AuthenticationService.ClearCredentials();
+            localStorage.removeItem('loggedInUser');
+            $cookieStore.remove('loggedInUser');
+            window.location.reload();
             $state.go('app.login');
+            $location.path('/login');
         }
 
         // Close the mobile menu on $stateChangeSuccess

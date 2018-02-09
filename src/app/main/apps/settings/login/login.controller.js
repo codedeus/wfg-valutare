@@ -39,6 +39,9 @@
               if(response.data.roles=='USER'){
                 msNavigationService.deleteItem('appraisals.manageappraisal');
               }
+              if(response.data.roles=='USER'||response.data.roles=='LINE_MANAGER'){
+                msNavigationService.deleteItem('settings');
+              }
               $state.go('app.dashboard');
             }
             else{

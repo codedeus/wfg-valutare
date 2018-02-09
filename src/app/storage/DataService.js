@@ -20,17 +20,7 @@
 
 
       function GetAllGenders() {
-          var deferred = $q.defer();
 
-            StoreService.db_.select()
-              .from(StoreService.db_.getSchema().table('Gender'))
-              .exec()
-              .then(
-              function(rows) {
-                deferred.resolve(rows);
-              });
-
-          return deferred.promise;
         }
 
     }

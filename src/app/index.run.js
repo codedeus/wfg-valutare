@@ -21,13 +21,13 @@
             var loggedInUser = $cookieStore.get('loggedInUser');
 
             $rootScope.pageTitle = toState.data.name || "";
-            if(loggedInUser==undefined){
+            if(loggedInUser==undefined&&toState.url!='/login'){
               //if no valid token, send the idiot to the loggin page
               event.preventDefault();
               $location.path('/login');
               $state.go('app.login');
             }
-            else if(toState.data.roles && !toState.data.roles.includes(loggedInUser.roles)){
+            else if(toState.data.roles && !includes&&toState.url!='/dashboard'){
               event.preventDefault();
               $location.path('/dashboard');
               $state.go('app.dashboard');
