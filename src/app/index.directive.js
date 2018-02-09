@@ -4,6 +4,7 @@
   angular
       .module('fuse')
       .directive('draggable', function() {
+
           return {
               // A = attribute, E = Element, C = Class and M = HTML Comment
               restrict: 'A',

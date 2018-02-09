@@ -35,7 +35,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.FullName">
+                                            <input md-no-asterisk type="text" required ng-model="vm.profiledata.FullName">
                                         </md-input-container>
                                     </div>
                                     <div layout="row" class="Profile-input">
@@ -44,7 +44,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="25">
                                             <label></label>
-                                            <md-select md-no-asterisk name="lob" ng-model="vm.profiledata.lob">
+                                            <md-select md-no-asterisk required name="lob" ng-model="vm.profiledata.lob">
                                                 <md-option ng-repeat="lob in vm.lobs" value="{{lob}}">
                                                     {{lob}}
                                                 </md-option>
@@ -55,7 +55,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="25">
                                             <label></label>
-                                            <md-select md-no-asterisk name="location" ng-model="vm.profiledata.location">
+                                            <md-select md-no-asterisk  name="location" ng-model="vm.profiledata.location">
                                                 <md-option ng-repeat="location in vm.locations" value="{{location.state +', '+location.country}}">
                                                     {{location.state +', '+location.country}}
                                                 </md-option>
@@ -68,14 +68,14 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="25">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.periodCovered" >
+                                            <input md-no-asterisk required type="text" ng-model="vm.profiledata.periodCovered" >
                                         </md-input-container>
                                         <div flex="20">
                                             <label class="tiredlabel">Time in present position:</label>
                                         </div>
                                         <md-input-container class="tiredinput" flex="25">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.timeInPresentPosition">
+                                            <input md-no-asterisk required type="text" ng-model="vm.profiledata.timeInPresentPosition">
                                         </md-input-container>
                                     </div>
 
@@ -85,7 +85,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.profiledata.recruitmentDate">
+                                            <input md-no-asterisk required type="date" name="dateOfBirth" ng-model="vm.profiledata.recruitmentDate">
                                         </md-input-container>
                                     </div>
                                     <div layout="row" class="Profile-input">
@@ -94,7 +94,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.lengthOfService">
+                                            <input md-no-asterisk required type="text" ng-model="vm.profiledata.lengthOfService">
                                         </md-input-container>
                                     </div>
                                     <!-- <div layout="row">
@@ -112,7 +112,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.appraisalVenue">
+                                            <input md-no-asterisk required type="text" ng-model="vm.profiledata.appraisalVenue">
                                         </md-input-container>
                                     </div>
                                     <div layout="row" class="Profile-input">
@@ -121,7 +121,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="text" ng-model="vm.profiledata.appraiser">
+                                            <input md-no-asterisk required type="text" ng-model="vm.profiledata.appraiser">
                                         </md-input-container>
                                     </div>
                                 </fieldset>
@@ -153,7 +153,7 @@
 
                                 <div layout="row" layout-gt-xs="row" flex>
                                     <md-input-container flex="100">
-                                      <textarea ng-model="vm.objective.objectives" md-select-on-focus></textarea>
+                                      <textarea ng-model="vm.objective.objectives" required md-select-on-focus></textarea>
 
                                     </md-input-container>
                                 </div>
@@ -190,7 +190,7 @@
                                             <li ng-repeat="jobsummary in vm.jobsummaries track by $index">
                                                 <div layout="row">
                                                     <md-input-container flex="70" class="options-style">
-                                                        <input md-no-asterisk type="text" ng-model="jobsummary.summary">
+                                                        <input md-no-asterisk required type="text" ng-model="jobsummary.summary">
                                                     </md-input-container>
                                                     <div flex="20">
                                                         <md-button class="delete_button" aria-label="remove selected jobsummary" ng-click="vm.removeSelectedObject(jobsummary,'jobsummary')">
@@ -217,7 +217,7 @@
                                               <li ng-repeat="objective in vm.responsibilities track by $index">
                                                   <div layout="row">
                                                       <md-input-container flex="70" class="options-style">
-                                                          <input md-no-asterisk type="text" ng-model="objective.comment">
+                                                          <input md-no-asterisk type="text" required ng-model="objective.comment">
                                                       </md-input-container>
                                                       <div flex="20">
                                                           <md-button aria-label="remove selected objective" ng-click="vm.removeSelectedObject(objective,'responsibility')">
@@ -249,7 +249,7 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.accomplishment"  md-select-on-focus></textarea>
+                                                        <textarea ng-model="vm.performanceAppraisal.accomplishment" required  md-select-on-focus></textarea>
 
                                                       </md-input-container>
                                                   </div>
@@ -261,7 +261,7 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.achievement"  md-select-on-focus></textarea>
+                                                        <textarea ng-model="vm.performanceAppraisal.achievement" required md-select-on-focus></textarea>
                                                           <div ng-messages="wizardStep1.firstname.$error"
                                                                 role="alert">
                                                               <div ng-message="">
@@ -278,13 +278,8 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.exceptionalPerformance"  md-select-on-focus></textarea>
-                                                          <div ng-messages="wizardStep1.firstname.$error"
-                                                                role="alert">
-                                                              <div ng-message="">
-                                                                  <span>Firstname field is .</span>
-                                                              </div>
-                                                          </div>
+                                                        <textarea ng-model="vm.performanceAppraisal.exceptionalPerformance" required md-select-on-focus></textarea>
+
                                                       </md-input-container>
                                                   </div>
                                                 </li>
@@ -295,13 +290,8 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.leadership"  md-select-on-focus></textarea>
-                                                          <div ng-messages="wizardStep1.firstname.$error"
-                                                                role="alert">
-                                                              <div ng-message="">
-                                                                  <span>Firstname field is .</span>
-                                                              </div>
-                                                          </div>
+                                                        <textarea ng-model="vm.performanceAppraisal.leadership" required  md-select-on-focus></textarea>
+
                                                       </md-input-container>
                                                   </div>
                                                 </li>
@@ -314,13 +304,8 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.ownership"  md-select-on-focus></textarea>
-                                                          <div ng-messages="wizardStep1.firstname.$error"
-                                                                role="alert">
-                                                              <div ng-message="">
-                                                                  <span>Firstname field is .</span>
-                                                              </div>
-                                                          </div>
+                                                        <textarea ng-model="vm.performanceAppraisal.ownership" required  md-select-on-focus></textarea>
+
                                                       </md-input-container>
                                                   </div>
                                                 </li>
@@ -331,13 +316,8 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.improvement"  md-select-on-focus></textarea>
-                                                          <div ng-messages="wizardStep1.firstname.$error"
-                                                                role="alert">
-                                                              <div ng-message="">
-                                                                  <span>Firstname field is .</span>
-                                                              </div>
-                                                          </div>
+                                                        <textarea ng-model="vm.performanceAppraisal.improvement" required md-select-on-focus></textarea>
+
                                                       </md-input-container>
                                                   </div>
                                                 </li>
@@ -348,13 +328,8 @@
 
                                                   <div layout="row" layout-gt-xs="row" flex>
                                                       <md-input-container flex="100">
-                                                        <textarea ng-model="vm.performanceAppraisal.anyOtherRole" md-select-on-focus></textarea>
-                                                          <div ng-messages="wizardStep1.firstname.$error"
-                                                                role="alert">
-                                                              <div ng-message="">
-                                                                  <span>Firstname field is .</span>
-                                                              </div>
-                                                          </div>
+                                                        <textarea ng-model="vm.performanceAppraisal.anyOtherRole" required md-select-on-focus></textarea>
+
                                                       </md-input-container>
                                                   </div>
                                                 </li>
@@ -406,7 +381,7 @@
                                           <td md-cell>{{philosophy.name}}</td>
                                           <td md-cell>{{philosophy.definition}}</td>
                                           <td md-cell>
-                                              <md-radio-group layout="row" layout-align="start center" ng-checked="vm.collectionTypeChanged()" ng-model="philosophy.rating">
+                                              <md-radio-group layout="row" layout-align="start center" required ng-checked="vm.collectionTypeChanged()" ng-model="philosophy.rating">
                                                   <md-radio-button value="4">4</md-radio-button>
                                                   <md-radio-button value="3">3</md-radio-button>
                                                   <md-radio-button value="2">2</md-radio-button>
@@ -428,7 +403,7 @@
 
                                     <div layout="row" layout-gt-xs="row" flex>
                                         <md-input-container flex="100">
-                                          <textarea ng-model="vm.feedBack" md-select-on-focus></textarea>
+                                          <textarea ng-model="vm.feedBack" required md-select-on-focus></textarea>
 
                                         </md-input-container>
                                     </div>
@@ -473,7 +448,7 @@
                                 <div layout="row" layout-gt-xs="row" class="page" flex layout-align="space-around center">
                                     <md-card class="default header" layout="column" flex layout-align="center">
 
-                                      <md-radio-group  layout="row" ng-checked="vm.collectionTypeChanged()" ng-model="vm.assessment.overall">
+                                      <md-radio-group required layout="row" ng-checked="vm.collectionTypeChanged()" ng-model="vm.assessment.overall">
                                           <div flex="20">
                                             <label> 5 </label>
                                             <md-radio-button value="5"></md-radio-button>
@@ -536,7 +511,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea class="form-textarea" md-no-asterisk type="text" ng-model="vm.currentPosition.competences"></textarea>
+                                            <textarea class="form-textarea" required md-no-asterisk type="text" ng-model="vm.currentPosition.competences"></textarea>
                                         </md-input-container>
                                     </div>
 
@@ -547,7 +522,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.currentPosition.actions"></textarea>
+                                            <textarea md-no-asterisk required type="text" ng-model="vm.currentPosition.actions"></textarea>
                                         </md-input-container>
                                     </div>
                                     <div layout="row">
@@ -556,7 +531,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.currentPosition.dueDate">
+                                            <input md-no-asterisk required type="date" name="dateOfBirth" ng-model="vm.currentPosition.dueDate">
                                         </md-input-container>
                                     </div>
                                 </fieldset>
@@ -568,7 +543,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.futurePosition.competences"></textarea>
+                                            <textarea md-no-asterisk required type="text" ng-model="vm.futurePosition.competences"></textarea>
                                         </md-input-container>
                                     </div>
 
@@ -578,7 +553,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <textarea md-no-asterisk type="text" ng-model="vm.futurePosition.actions"></textarea>
+                                            <textarea md-no-asterisk required type="text" ng-model="vm.futurePosition.actions"></textarea>
                                         </md-input-container>
                                     </div>
                                     <div layout="row">
@@ -587,7 +562,7 @@
                                         </div>
                                         <md-input-container class="tiredinput" flex="70">
                                             <label></label>
-                                            <input md-no-asterisk type="date" name="dateOfBirth" ng-model="vm.futurePosition.dueDate">
+                                            <input md-no-asterisk required type="date" name="dateOfBirth" ng-model="vm.futurePosition.dueDate">
                                         </md-input-container>
                                     </div>
                                 </fieldset>
@@ -608,12 +583,12 @@
                     </div>
                     <md-button class="md-raised md-accent" ng-click="msWizard.nextStep()"
                                ng-hide="msWizard.isLastStep()"
-                               ng-disabled="msWizard.currentStepInvalid()">
+                               ng-disabled="msWizard.currentStepInvalid()||(msWizard.selectedIndex==2&&(vm.jobsummaries.length==0|| vm.responsibilities.length==0))">
                         Next
                     </md-button>
                     <md-button class="md-raised md-warn" ng-click="vm.sendForm(); msWizard.resetForm();"
                                ng-show="msWizard.isLastStep()"
-                               ng-disabled="msWizard.formsIncomplete()">
+                               ng-disabled="msWizard.formsIncomplete() ||vm.jobsummaries.length==0|| vm.responsibilities.length==0">
                         Send
                     </md-button>
                 </div>

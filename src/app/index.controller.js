@@ -12,5 +12,6 @@
         var vm = this;
 
         vm.themes = fuseTheming.themes;
+        console.log('index controller is called...');
     }
 })();

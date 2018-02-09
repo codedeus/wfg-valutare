@@ -9,6 +9,11 @@
     .config(config);
 
   function config(msNavigationServiceProvider) {
+    var localitem = localStorage.getItem('loggedInUser');
+      if(localitem!=undefined||localitem!='undefined'){
+        localitem = JSON.parse(localitem);
+      }
+
     msNavigationServiceProvider.saveItem("appraisals", {
       title: "Appraisals",
       weight: 1,
@@ -17,12 +22,18 @@
 
     msNavigationServiceProvider.saveItem("appraisals.newappraisal", {
       title: "New Appraisal",
-      state: "app.newappraisal"
+      state: "app.newappraisal",
+      hidden:function(){
+        return (localitem.roles!='USER' && localitem.roles!='LINE_MANAGER');
+      }
     });
 
     msNavigationServiceProvider.saveItem("appraisals.manageappraisal", {
       title: "Manage Appraisal",
-      state: "app.manageappraisal"
+      state: "app.manageappraisal",
+      hidden:function(){
+        return localitem.roles=='USER';
+      }
     });
   }
 })();

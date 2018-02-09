@@ -28,6 +28,9 @@
               $http.defaults.headers.common['X-AUTH-TOKEN'] = response.data.token;
               $cookieStore.put("loggedInUser", response.data);
               localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+
+
+
               //log the person in(redirect to dashboard)
               if (response.data.roles!='USER'&&response.data.roles!='LINE_MANAGER') {
                 msNavigationService.deleteItem('appraisals.newappraisal');

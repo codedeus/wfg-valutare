@@ -49,7 +49,7 @@
                 <div class="details" layout="row" layout-wrap>
                     <div flex="25">
                         <p style="font-weight: bold; font-size:15px;">Line Of Business</p>
-                        <span>{{user.personalInfo.lob||'N/A'}}</span>
+                        <span>{{user.lob||'N/A'}}</span>
                     </div>
                     <div flex="25">
                         <p style="font-weight: bold; font-size:15px;">Recruitment Date</p>
@@ -291,8 +291,23 @@
           </div>
         </div>
       </fieldset>
+      <fieldset id="viewfieldset" ng-show="lineManagerComment &&loggedInUser.roles!='LINE_MANAGER'">
+        <legend>MANAGER'S RATING AND COMMENT</legend>
+        <div class="personal-profile" layout="row">
+          <div class="profile-details" layout="column" flex>
+        <div flex>
+            <p style="font-weight: bold; font-size:15px;">Final Rating</p>
+            <span style="margin:20px;">{{lineManagerComment.finalRating}}</span>
+        </div>
+        <div flex>
+            <p style="font-weight: bold; font-size:15px;">Comment</p>
+            <span style="margin:20px;">{{lineManagerComment.comment}}</span>
+        </div>
+          </div>
+        </div>
+    </fieldset>
       <fieldset id="viewfieldset">
-      <legend>APPROVE/DECLINE</legend>
+      <legend>{{loggedInUser.roles=='TOP_MANAGER' &&lineManagerComment?"FINAL APPROVAL":'SIGN-OFF/APPROVAL'}}</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="details" layout="column" layout-wrap>
@@ -318,7 +333,7 @@
           </div>
         </div>
       </fieldset>
-      <div layout="row" layout-align="center center">
+      <div layout="row" layout-align="center center" ng-show="loggedInUser.roles=='TOP_MANAGER'||loggedInUser.roles=='LINE_MANAGER'">
           <md-button  class="md-raised md-accent"  ng-click="submitReveiw(true)" ng-disabled="review.finalRating==null||review.comment==null" style="margin-right:20px;">
               Approve
           </md-button>

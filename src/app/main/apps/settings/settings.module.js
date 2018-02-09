@@ -9,10 +9,17 @@
         .config(config);
 
     function config(msNavigationServiceProvider) {
+      var localitem = localStorage.getItem('loggedInUser');
+      if(localitem!=undefined||localitem!='undefined'){
+        localitem = JSON.parse(localitem);
+      }
         msNavigationServiceProvider.saveItem('settings', {
             title: 'Settings',
             weight: 1,
-            icon: 'icon-cog'
+            icon: 'icon-cog',
+            hidden:function(){
+              return localitem.roles=='USER';
+            }
         });
 
         msNavigationServiceProvider.saveItem("settings.employeelist", {

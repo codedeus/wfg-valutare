@@ -5,10 +5,11 @@
     </md-card>
     <fieldset>
       <legend>View</legend>
-      <md-radio-group layout="row" layout-align="center space-between" ng-model="vm.section">
-        <md-radio-button value="pending">Pending List</md-radio-button>
-        <md-radio-button value="reviewd">Reviewed List</md-radio-button>
+      <md-radio-group layout="row" ng-change="vm.appraisalStatusChanged(vm.status)" layout-align="center space-between" ng-model="vm.status">
+        <md-radio-button ng-show="vm.loggedInUser.roles=='LINE_MANAGER'||vm.loggedInUser.roles=='SUPER_ADMIN'" value="pending">Pending List</md-radio-button>
+        <md-radio-button value="reviewed">Reviewed List</md-radio-button>
         <md-radio-button value="approved">Approved List</md-radio-button>
+        <md-radio-button value="rejected">Rejected List</md-radio-button>
       </md-radio-group>
     </fieldset>
     <div class="table" style="margin:25px;">

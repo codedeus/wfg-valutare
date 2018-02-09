@@ -7,8 +7,10 @@
        // .config(exceptionConfig);
 
     /** @ngInject */
-    function config($httpProvider){
+    function config($httpProvider,$stateProvider){
         // Put your custom configurations here
+        console.log($stateProvider);
+        console.log('index config is called...');
         var token = localStorage.getItem('loggedInUser');
         if(token!=null&&token!='undefined'){
           token =   JSON.parse(token);
