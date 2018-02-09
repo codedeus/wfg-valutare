@@ -4,7 +4,7 @@
 
     </md-card>
     <fieldset>
-      <legend>View</legend>
+      <legend class="legend_style">View</legend>
       <md-radio-group layout="row" layout-align="center space-between" ng-model="vm.section">
         <md-radio-button value="pending">Pending List</md-radio-button>
         <md-radio-button value="reviewd">Reviewed List</md-radio-button>
@@ -17,16 +17,16 @@
           <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
             <tr md-row>
               <th md-column>
-                <span>Full Name </span>
+                <span class="table_heading_style">Full Name </span>
               </th>
               <th md-column>
-                <span>Email </span>
+                <span class="table_heading_style">Email </span>
               </th>
               <th md-column>
-                <span>Line of Business </span>
+                <span class="table_heading_style">Line of Business </span>
               </th>
               <th md-column>
-                <span>Appraisal Date </span>
+                <span class="table_heading_style">Appraisal Date </span>
               </th>
             </tr>
           </thead>
