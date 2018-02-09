@@ -25,12 +25,12 @@
 </div>
 
 <md-dialog style="max-width: 90%; max-height: 90%;" aria-label="Employee Appraisal Form" flex draggable >
-    <md-toolbar style="background:rgb(3,155,229);">
+    <md-toolbar style="background-color: #fff;">
         <div class="md-toolbar-tools">
-          <h2>Employee Appraisal Form</h2>
+          <h2 style="color: #455a64; font-weight: bold;" class="details_heading">Employee Appraisal Form</h2>
           <span flex></span>
           <md-button class="md-icon-button" ng-click="cancel()">
-            <md-icon md-svg-src="./assets/icons/svg/close-button.svg" aria-label="Close dialog"></md-icon>
+            <md-icon style="color: #455a64; font-weight: bold;" md-svg-src="./assets/icons/svg/close-button.svg" aria-label="Close dialog"></md-icon>
           </md-button>
         </div>
       </md-toolbar>
@@ -39,11 +39,11 @@
     <div layout="column" class="page" layout-fill>
 
       <fieldset id="viewfieldset">
-        <legend>EMPLOYEE PROFILE</legend>
+        <h3 style="padding-left: 10px; margin: 10px 0px; font-weight: bold; color: #263238;">EMPLOYEE PROFILE</h3>
           <div class="personal-profile" layout="row">
             <div class="profile-details" layout="column" flex>
-              <div class="header">
-                  <h1 style="font-weight: bold; font-size:15px;">{{user.firstname+' '+user.lastname}}
+              <div class="header" style="border-radius: 0px;">
+                  <h1 style="font-weight: bold; font-size:17px;">{{user.firstname+' '+user.lastname}}
                   </h1>
               </div>
                 <div class="details" layout="row" layout-wrap>
@@ -87,8 +87,8 @@
                 </div>
               </div>
             </fieldset>
-            <fieldset id="viewfieldset">
-            <legend>GOALS & OBJECTIVES</legend>
+            <fieldset id="viewfieldset" style="padding: 10px;">
+            <legend class="legend_style">GOALS & OBJECTIVES</legend>
               <div class="personal-profile" layout="row">
                 <div class="profile-details" layout="column" flex>
                   <!-- <p>A brief description of employee's understanding and contributions to the overall objective of the organisation in 2017 </p> -->
@@ -101,15 +101,15 @@
                 </div>
               </div>
             </fieldset>
-                  <fieldset id="viewfieldset">
-                    <legend>EMPLOYEE’S SELF- ASSESSMENT</legend>
+                  <fieldset id="viewfieldset" style="padding: 10px;">
+                    <legend class="legend_style">EMPLOYEE’S SELF- ASSESSMENT</legend>
                       <div class="personal-profile" layout="row">
                         <div class="profile-details" layout="column" flex>
                           <!-- <p>Your Job Summary: Summary of Employee's responsibilities during this period, including significant projects. </p> -->
 
                             <div class="visits" flex>
-                                <h2 class="heading">
-                                    <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Job Summary</h2>
+                                <h2 class="legend_style2">
+                                    <md-icon class="icon_padding" md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Job Summary</h2>
                                 <div class="single-visit">
                                     <md-table-container>
                                         <table md-table ng-model="selected" md-progress="promise">
@@ -122,7 +122,7 @@
                                           </thead> -->
                                           <tbody md-body>
                                             <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="summary in jobSummary">
-                                              <td md-cell style="padding: 0;">{{$index + 1}}</td>
+                                              <td md-cell style="padding: 10px 20px; width: 40px;">{{$index + 1}}.</td>
                                               <td md-cell>{{summary.summary}}</td>
                                             </tr>
                                           </tbody>
@@ -134,8 +134,8 @@
                                 </div>
                             </div>
                             <div class="visits" flex>
-                                <h2 class="heading" style="margin-top:40px;">
-                                    <md-icon md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Adjusted Responsibilities/Additional Comments</h2>
+                                <h2 class="legend_style2" style="margin-top:40px;">
+                                    <md-icon class="icon_padding" md-svg-src="./assets/icons/svg/added/Admit.svg"></md-icon>Adjusted Responsibilities/Additional Comments</h2>
                                 <div>
                                     <md-table-container>
                                         <table md-table ng-model="selected" md-progress="promise">
@@ -148,7 +148,7 @@
                                           </thead> -->
                                           <tbody md-body>
                                             <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="comment in additionalComments">
-                                              <td md-cell style="padding: 0;">{{$index + 1}}</td>
+                                              <td md-cell style="padding: 10px 20px; width: 40px;">{{$index + 1}}.</td>
                                               <td md-cell>{{comment.comment}}</td>
                                             </tr>
                                           </tbody>
@@ -163,8 +163,8 @@
                             </div>
                           </div>
                         </fieldset>
-                        <fieldset id="viewfieldset">
-                          <legend>PERFORMANCE APPRAISAL</legend>
+                        <fieldset id="viewfieldset" style="padding: 10px;">
+                          <legend class="legend_style">PERFORMANCE APPRAISAL</legend>
                             <div class="personal-profile" layout="row">
                               <div class="profile-details" layout="column" flex>
 
@@ -202,8 +202,8 @@
                                   </div>
                                 </div>
               </fieldset>
-      <fieldset id="viewfieldset">
-      <legend>FOUNDING PHILOSOPHY</legend>
+      <fieldset id="viewfieldset" style="padding: 10px;">
+      <legend class="legend_style">FOUNDING PHILOSOPHY</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <md-table-container>
@@ -235,8 +235,8 @@
           </div>
         </div>
       </fieldset>
-      <fieldset id="viewfieldset">
-      <legend>OVERALL ASSESSMENT</legend>
+      <fieldset id="viewfieldset" style="padding: 10px;">
+      <legend class="legend_style">OVERALL ASSESSMENT</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
 
@@ -252,13 +252,13 @@
         </div>
       </fieldset>
       <fieldset id="viewfieldset">
-      <legend>DEVELOPMENT PLAN</legend>
+      <legend class="legend_style">DEVELOPMENT PLAN</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
 
             <div class="details" layout="column" layout-wrap>
                 <fieldset>
-                    <legend>{{developmentPlans[0]['plan']}}</legend>
+                    <legend class="legend_style2">{{developmentPlans[0]['plan']}}</legend>
                     <div flex>
                         <p style="font-weight: bold; font-size:15px;">Competences</p>
                         <span style="margin:20px;">{{developmentPlans[0]['competences']}}</span>
@@ -273,7 +273,7 @@
                     </div>
                 </fieldset>
                 <fieldset>
-                    <legend>{{developmentPlans[1]['plan']}}</legend>
+                    <legend class="legend_style2">{{developmentPlans[1]['plan']}}</legend>
                     <div flex>
                         <p style="font-weight: bold; font-size:15px;">Competences</p>
                         <span style="margin:20px;">{{developmentPlans[1]['competences']}}</span>
@@ -291,6 +291,7 @@
           </div>
         </div>
       </fieldset>
+<<<<<<< HEAD
       <fieldset id="viewfieldset" ng-show="lineManagerComment &&loggedInUser.roles!='LINE_MANAGER'">
         <legend>MANAGER'S RATING AND COMMENT</legend>
         <div class="personal-profile" layout="row">
@@ -308,12 +309,16 @@
     </fieldset>
       <fieldset id="viewfieldset">
       <legend>{{loggedInUser.roles=='TOP_MANAGER' &&lineManagerComment?"FINAL APPROVAL":'SIGN-OFF/APPROVAL'}}</legend>
+=======
+      <fieldset id="viewfieldset" style="padding: 10px;">
+      <legend class="legend_style">APPROVE/DECLINE</legend>
+>>>>>>> f2dac268b59f19c20cf9848b213aaeb9e45cba5a
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="details" layout="column" layout-wrap>
                 <div layout="row" flex>
                     <div flex="15">
-                        <label class="tiredlabel"><span class="" style="font-weight: bold; font-size:15px;">*</span> Final Rating:</label>
+                        <label class="tiredlabel"><span class="" style="font-weight: bold; font-size:15px; display: inline; padding: 0px;">*</span> Final Rating:</label>
                     </div>
                     <md-input-container class="tiredinput" flex="80">
                       <label></label>
@@ -322,7 +327,7 @@
                   </div>
               <div layout="row" flex>
                 <div flex="15">
-                    <label class="tiredlabel"><span class="" style="font-weight: bold; font-size:15px;">*</span> Comment:</label>
+                    <label class="tiredlabel"><span class="" style="font-weight: bold; font-size:15px; display: inline; padding: 0px;">*</span> Comment:</label>
                 </div>
                 <md-input-container class="tiredinput" flex="80">
                   <label></label>
@@ -350,6 +355,3 @@
       </button>
   </div> -->
   </md-dialog>
-
-
-

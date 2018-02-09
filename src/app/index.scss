@@ -120,6 +120,10 @@ fieldset {
   background-color: rgb(3,155,229);
 }
 
+.ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button:hover{
+ background: #9ccc65;
+}
+
 #toolbar #navigation-toggle,#vertical-navigation .navigation-header{
   height: 48px;
   min-height: 48px;
@@ -216,6 +220,40 @@ md-item p{
     color: #ffffff;
 }
 
+<<<<<<< HEAD
 .ms-navigation .ms-navigation-node .ms-navigation-item > .ms-navigation-button:hover{
   background: #E4E4E4;
+=======
+md-toolbar.md-default-theme:not(.md-menu-toolbar) md-icon, md-toolbar:not(.md-menu-toolbar) md-icon {
+    fill: #455a64;
+}
+
+.legend_style {
+  font-size: 16px;
+  padding: 0px 10px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.legend_style2 {
+  font-size: 14px;
+  padding: 0px 10px;
+  font-weight: bold;
+  color: #263238;
+}
+
+ .table_spacing {
+  padding: 10px;
+  width: 40px
+}
+
+.icon_padding {
+  margin: 0px 10px 0;
+}
+
+.table_heading_style {
+  font-size: 16px;
+  font-weight: bold;
+  color: #263238;
+>>>>>>> f2dac268b59f19c20cf9848b213aaeb9e45cba5a
 }
