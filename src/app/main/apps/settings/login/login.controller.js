@@ -27,12 +27,16 @@
               $scope.processingRequest = false;
               $http.defaults.headers.common['X-AUTH-TOKEN'] = response.data.token;
               $cookieStore.put("loggedInUser", response.data);
-              localStorage.setItem("loggedInUser", JSON.stringify(response.data));
 
+              localStorage.setItem("loggedInUser", JSON.stringify(response.data));
+              vm.loggedInUser = localStorage.getItem('loggedInUser');
+              if(vm.loggedInUser!=undefined||vm.loggedInUser!='undefined'){
+                vm.loggedInUser = JSON.parse(vm.loggedInUser);
+              }
 
 
               //log the person in(redirect to dashboard)
-              if (response.data.roles!='USER'&&response.data.roles!='LINE_MANAGER') {
+              if (response.data.roles!='USER'&&response.data.roles!='LINE_MANAGER'&&vm.loggedInUser.roles!='SUPER_ADMIN') {
                 msNavigationService.deleteItem('appraisals.newappraisal');
               }
 

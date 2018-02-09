@@ -144,8 +144,17 @@
                           console.log(overallres);
                           $http.put(AppConstants.baseApiUrl+"users/update-profile",vm.profiledata).then(function(profiledatares){
                             $http.post(AppConstants.baseApiUrl+'plans',vm.developmentPlan).then(function(success){
-                              $rootScope.processingRequest = false;
+                              vm.responsibilities = [];
+                              vm.jobsummaries = [];
+                              vm.objective = {};
+                              vm.performanceAppraisal = {};
+                              vm.developmentPlan = [];
+                              vm.assessment = {};
+                              vm.profiledata = {};
+                              vm.feedBack = {};
+
                               UtilityService.showAlert('success!','Appraisal submitted successfully','Alert Dialog');
+                              $rootScope.processingRequest = false;
 
                             },function(response){
                               console.log(response);

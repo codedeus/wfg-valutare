@@ -19,9 +19,12 @@
             $rootScope.loadingProgress = true;
             // check if user is logged int(has valid token)
             var loggedInUser = $cookieStore.get('loggedInUser');
-
+			var includes = false;
+			if(toState.data.roles &&loggedInUser){
+				includes = toState.data.roles.includes(loggedInUser.roles);
+			}
             $rootScope.pageTitle = toState.data.name || "";
-            if(loggedInUser==undefined&&toState.url!='/login'){
+            if(loggedInUser==undefined&&toState.url!='/login'&&toState.url!='/register'){
               //if no valid token, send the idiot to the loggin page
               event.preventDefault();
               $location.path('/login');

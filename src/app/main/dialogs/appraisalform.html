@@ -73,7 +73,7 @@
                     </div>
                     <div flex="25">
                         <p style="font-weight: bold; font-size:15px;">Appraisal date & time</p>
-                        <span>{{user.personalInfo.appraisalVenue}}</span>
+                        <span>{{appraisalDate|date:'medium'}}</span>
                     </div>
                     <div flex="25">
                         <p style="font-weight: bold; font-size:15px;">Appraisal venue</p>
@@ -93,7 +93,7 @@
                 <div class="profile-details" layout="column" flex>
                   <!-- <p>A brief description of employee's understanding and contributions to the overall objective of the organisation in 2017 </p> -->
                   <div class="details" layout="row" layout-wrap>
-                      <div flex="25">
+                      <div flex>
                           <!-- <p>RESPONSE</p> -->
                         <span>{{objectives.objectives}}</span>
                     </div>
@@ -241,10 +241,10 @@
           <div class="profile-details" layout="column" flex>
 
             <div class="details" layout="row" layout-wrap>
-                <div flex="25">
+                <div flex>
 
                   <span>{{
-                    vm.overallAssessment
+                    overallAssessment.overall ==1?'No Basis:  had little opportunity to demonstrate this Performance Factor during the assessment period.  ':overallAssessment.overall==2?'Does Not Meet Expectations:  Has difficulty demonstrating this Performance Factor; significant improvement is required. ':overallAssessment.overall==3?'Partially Meets Expectations:  Effectively demonstrates the Performance Factor in many, but not all situations, and/or some improvement is required.':overallAssessment.overall==4?'Meets Expectations:  Effectively demonstrates the Performance Factor, all of the time, in all situations, consistently in line with expectations.':overallAssessment.overall==5?'Exceeds Expectations:  Demonstrates this Performance Factor consistently above and beyond expectations.  ':overallAssessment.overall==0?'Individual has not been in position long enough (at least three (3) months) to fully demonstrate the competencies required for the position. This appraisal is provided for feedback purposes.':''
                   }}</span>
               </div>
             </div>
@@ -291,7 +291,7 @@
           </div>
         </div>
       </fieldset>
-      <fieldset id="viewfieldset" style="padding: 10px;" ng-show="lineManagerComment">
+      <fieldset id="viewfieldset" style="padding: 10px;" ng-show="lineManagerComment && loggedInUser.roles!='LINE_MANAGER'">
         <legend class="legend_style">MANAGER'S RATING AND COMMENT</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
@@ -306,8 +306,8 @@
           </div>
         </div>
     </fieldset>
-      <fieldset id="viewfieldset">
-      <legend>{{loggedInUser.roles=='TOP_MANAGER' &&lineManagerComment?"FINAL APPROVAL":'SIGN-OFF/APPROVAL'}}</legend>
+      <fieldset style="padding: 10px;"  id="viewfieldset">
+      <legend class="legend_style">{{loggedInUser.roles=='TOP_MANAGER' &&lineManagerComment?"FINAL APPROVAL":'SIGN-OFF/APPROVAL'}}</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="details" layout="column" layout-wrap>

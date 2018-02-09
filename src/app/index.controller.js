@@ -19,7 +19,7 @@
           vm.loggedInUser = JSON.parse(vm.loggedInUser);
         }
 
-        if (vm.loggedInUser&&vm.loggedInUser.roles!='USER'&&vm.loggedInUser.roles!='LINE_MANAGER') {
+        if (vm.loggedInUser&&vm.loggedInUser.roles!='USER'&&vm.loggedInUser.roles!='LINE_MANAGER'&&vm.loggedInUser.roles!='SUPER_ADMIN'  ) {
           msNavigationService.deleteItem('appraisals.newappraisal');
         }
 

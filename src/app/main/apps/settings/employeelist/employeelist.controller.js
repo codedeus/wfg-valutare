@@ -5,6 +5,25 @@
       controller('EmployeeListController',function(AppConstants,$http,$scope,$rootScope,UtilityService,$mdDialog){
         var vm = this;
 
+        $scope.limitOptions = [5, 10, 20, 50, 100];
+
+        $scope.query = {
+          order: "name",
+          limit: 5,
+          page: 1
+        };
+
+        $scope.options = {
+          rowSelection: true,
+          multiSelect: true,
+          autoSelect: true,
+          decapitate: false,
+          largeEditDialog: false,
+          boundaryLinks: false,
+          limitSelect: true,
+          pageSelect: true
+        };
+
         vm.uploadTemlate = function(){
 
           $rootScope.processingRequest = true;
@@ -63,7 +82,7 @@
 
         $scope.closeDialog = function() {
           $mdDialog.cancel();
-      };
+        };
 
         vm.templateData = [{
           firstname: '',
@@ -72,6 +91,22 @@
           lob: '',
           role: ''
       }];
+
+      vm.getEmployeeList = function() {
+        $http
+          .get(AppConstants.baseApiUrl+'users?pageNumber='+$scope.query.page+"&pageSize=" + $scope.query.limit)
+          .then(
+            function(response) {
+              $scope.employees = response.data.content;
+              $scope.employees.count = response.data.total;
+            },
+            function(err) {
+              var error = err;
+            }
+          );
+      };
+
+      vm.getEmployeeList();
 
       vm.downloadTemlate = function() {
         UtilityService.exportToExcel('employeelisttemplate', vm.templateData);

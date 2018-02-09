@@ -6,7 +6,7 @@
     <fieldset>
       <legend>View</legend>
       <md-radio-group layout="row" ng-change="vm.appraisalStatusChanged(vm.status)" layout-align="center space-between" ng-model="vm.status">
-        <md-radio-button ng-show="vm.loggedInUser.roles=='LINE_MANAGER'||vm.loggedInUser.roles=='SUPER_ADMIN'" value="pending">Pending List</md-radio-button>
+        <md-radio-button ng-show="vm.loggedInUser.roles=='LINE_MANAGER'||vm.loggedInUser.roles=='SUPER_ADMIN'" value="pending">Submitted List</md-radio-button>
         <md-radio-button value="reviewed">Reviewed List</md-radio-button>
         <md-radio-button value="approved">Approved List</md-radio-button>
         <md-radio-button value="rejected">Rejected List</md-radio-button>
@@ -26,9 +26,9 @@
               <th md-column>
                 <span class="table_heading_style">Line of Business </span>
               </th>
-              <th md-column>
+              <!-- <th md-column>
                 <span class="table_heading_style">Appraisal Date </span>
-              </th>
+              </th> -->
             </tr>
           </thead>
 
@@ -37,7 +37,7 @@
               <td md-cell class="nameStlye">{{user.firstname}} {{user.lastname}}</td>
               <td md-cell>{{user.email}}</td>
               <td md-cell>{{user.lob}}</td>
-              <td md-cell>{{user.appraisalDate}}</td>
+              <!-- <td md-cell>{{user.appraisalDate}}</td> -->
               <td md-cell>
                 <md-icon ng-click="vm.getAppraisalDetails(user,$event,'appraisalform.html')" md-svg-src="./assets/icons/svg/view-list-button.svg"
                   class="button">view</md-icon>

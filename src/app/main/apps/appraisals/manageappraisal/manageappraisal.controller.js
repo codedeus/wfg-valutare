@@ -120,8 +120,15 @@
     }).controller('ViewAppraisalController',function(dialogData,$scope,$mdDialog,$rootScope,AppConstants,UtilityService,$http){
       var vm = this;
       $scope.review = {};
+      debugger;
+
+      $scope.loggedInUser = localStorage.getItem('loggedInUser');
+      if($scope.loggedInUser!=undefined||$scope.loggedInUser!='undefined'){
+        $scope.loggedInUser = JSON.parse($scope.loggedInUser);
+      }
 
       $scope.user = dialogData.user;
+      $scope.appraisalDate = dialogData.appraisalDate;
       $scope.objectives = dialogData.objectives;
       $scope.jobSummary = dialogData.jobSummary;
       $scope.additionalComments = dialogData.additionalComments;
@@ -133,10 +140,10 @@
       $scope.lineManagerComment = dialogData.lineManagerComment;
       $rootScope.processingRequest = false;
 
-      $scope.loggedInUser = localStorage.getItem('loggedInUser');
-      if($scope.loggedInUser!=undefined||$scope.loggedInUser!='undefined'){
-        $scope.loggedInUser = JSON.parse($scope.loggedInUser);
+      if($scope.lineManagerComment&&$scope.loggedInUser&&$scope.loggedInUser.roles=='LINE_MANAGER'){
+        $scope.review = $scope.lineManagerComment;
       }
+
 
       $scope.cancel = function(){
         $mdDialog.cancel();

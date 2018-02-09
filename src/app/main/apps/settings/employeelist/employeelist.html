@@ -26,6 +26,23 @@
 
       <fieldset>
         <legend>Employees</legend>
+
+
+            <md-toolbar class="md-table-toolbar md-default">
+              <div class="md-toolbar-tools">
+
+
+                <md-button class="md-icon-button" ng-click="getEmployeeList()">
+                  <md-icon aria-label="refresh list" md-font-icon="icon-refresh"></md-icon>
+                </md-button>
+              </div>
+            </md-toolbar>
+
+            <!-- <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+              <div class="md-toolbar-tools">
+                <span>{{selected.length}} {{selected.length > 1 ? 'Users' : 'User'}} selected</span>
+              </div>
+            </md-toolbar> -->
         <md-table-container>
           <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
             <thead ng-if="!options.decapitate" md-head md-order="query.order" md-on-reorder="logOrder">
@@ -38,17 +55,19 @@
               </tr>
             </thead>
             <tbody md-body>
-              <tr md-row md-select="user" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="user in employees | filter: filter.search | orderBy: query.order ">
+              <tr md-row md-select="employee" md-on-select="logItem" md-auto-select="options.autoSelect"  ng-repeat="employee in employees | filter: filter.search | orderBy: query.order ">
 
-                <td md-cell>{{user.firstname}}</td>
-                <td md-cell>{{user.lastname}}</td>
-                <td md-cell>{{user.email}}</td>
-                <td md-cell>{{user.roleName}}</td>
-                <td md-cell>{{user.lob}}</td>
+                <td md-cell>{{employee.firstname}}</td>
+                <td md-cell>{{employee.lastname}}</td>
+                <td md-cell>{{employee.email}}</td>
+                <td md-cell>{{employee.role}}</td>
+                <td md-cell>{{employee.lob}}</td>
               </tr>
             </tbody>
           </table>
         </md-table-container>
+        <md-table-pagination md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="{{employees.count}}" md-page-select="options.pageSelect" md-boundary-links="options.boundaryLinks" md-on-paginate="vm.getEmployeeList"></md-table-pagination>
+
       </fieldset>
 
     </div>
