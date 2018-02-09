@@ -291,9 +291,8 @@
           </div>
         </div>
       </fieldset>
-<<<<<<< HEAD
-      <fieldset id="viewfieldset" ng-show="lineManagerComment &&loggedInUser.roles!='LINE_MANAGER'">
-        <legend>MANAGER'S RATING AND COMMENT</legend>
+      <fieldset id="viewfieldset" style="padding: 10px;" ng-show="lineManagerComment &&loggedInUser.roles!='LINE_MANAGER'">
+        <legend class="legend_style">MANAGER'S RATING AND COMMENT</legend>
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
         <div flex>
@@ -309,10 +308,6 @@
     </fieldset>
       <fieldset id="viewfieldset">
       <legend>{{loggedInUser.roles=='TOP_MANAGER' &&lineManagerComment?"FINAL APPROVAL":'SIGN-OFF/APPROVAL'}}</legend>
-=======
-      <fieldset id="viewfieldset" style="padding: 10px;">
-      <legend class="legend_style">APPROVE/DECLINE</legend>
->>>>>>> f2dac268b59f19c20cf9848b213aaeb9e45cba5a
         <div class="personal-profile" layout="row">
           <div class="profile-details" layout="column" flex>
             <div class="details" layout="column" layout-wrap>
